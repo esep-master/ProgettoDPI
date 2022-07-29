@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 01/04/2019 17:46
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dicommand_steady_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/dicommand_steady_color_head"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Color:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_steady_color_spin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_steady_color_spin" />
+
+    <it.bleb.dpi.utils.CustomSpinner
+        android:id="@+id/dicommand_steady_color_spin"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_steady_color_head"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dicommand_steady_value_head"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Value:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_steady_value_seek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_steady_value_seek" />
+
+    <SeekBar
+        android:id="@+id/dicommand_steady_value_seek"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        app:layout_constraintEnd_toStartOf="@+id/dicommand_steady_value_txt"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_steady_value_head"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_steady_color_spin" />
+
+    <TextView
+        android:id="@+id/dicommand_steady_value_txt"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_steady_value_seek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_steady_value_seek" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,13 @@
+.form-content{
+    display: flex;
+    margin-bottom: 24px;
+}
+
+label{
+    margin-bottom: 8px;
+    display: block;
+}
+
+.mr-16{
+    margin-right: 16px;
+}

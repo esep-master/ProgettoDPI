@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* primeng style  */
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+
+/* ALTERNATIVE THEME FOR PRIMENG  */
+/* @import "primeng/resources/themes/bootstrap4-light-blue/theme.css ";
+@import "primeng/resources/themes/bootstrap4-light-purple/theme.css ";
+@import "primeng/resources/themes/bootstrap4-dark-blue/theme.css ";
+@import "primeng/resources/themes/bootstrap4-dark-purple/theme.css ";
+@import "primeng/resources/themes/md-light-indigo/theme.css ";
+@import "primeng/resources/themes/md-light-deeppurple/theme.css ";
+@import "primeng/resources/themes/md-dark-indigo/theme.css ";
+@import "primeng/resources/themes/md-dark-deeppurple/theme.css ";
+@import "primeng/resources/themes/mdc-light-indigo/theme.css ";
+@import "primeng/resources/themes/mdc-light-deeppurple/theme.css ";
+@import "primeng/resources/themes/mdc-dark-indigo/theme.css ";
+@import "primeng/resources/themes/mdc-dark-deeppurple/theme.css ";
+@import "primeng/resources/themes/fluent-light/theme.css ";
+@import "primeng/resources/themes/saga-blue/theme.css ";
+@import "primeng/resources/themes/saga-green/theme.css ";
+@import "primeng/resources/themes/saga-orange/theme.css ";
+@import "primeng/resources/themes/saga-purple/theme.css ";
+@import "primeng/resources/themes/vela-blue/theme.css ";
+@import "primeng/resources/themes/vela-green/theme.css ";
+@import "primeng/resources/themes/vela-orange/theme.css ";
+@import "primeng/resources/themes/vela-purple/theme.css ";
+@import "primeng/resources/themes/arya-blue/theme.css ";
+@import "primeng/resources/themes/arya-green/theme.css ";
+@import "primeng/resources/themes/arya-orange/theme.css ";
+@import "primeng/resources/themes/arya-purple/theme.css ";
+@import "primeng/resources/themes/nova/theme.css ";
+@import "primeng/resources/themes/nova-alt/theme.css ";
+@import "primeng/resources/themes/nova-accent/theme.css ";
+@import "primeng/resources/themes/luna-amber/theme.css ";
+@import "primeng/resources/themes/luna-blue/theme.css ";
+@import "primeng/resources/themes/luna-green/theme.css ";
+@import "primeng/resources/themes/luna-pink/theme.css ";
+@import "primeng/resources/themes/rhea/theme.css "; */
+
+.break-word{
+  word-break: break-all;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body .container {
+  height: 100%;
+}
+
+.space-between-flexItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center-content-flexItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pt-8 {
+  padding-top: 8px;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.ta-right{
+  text-align: right;
+}
+
+.margin-top-left-bold{
+  margin-top: 8px;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* sovrascrittura classi primeng */
+.p-menubar {
+  border: 0;
+  border-radius: 0px;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.p-multiselect {
+  min-width: 256px;
+}
+
+.p-dialog-content {
+  overflow-y: inherit !important;
+}
+
+.p-reset-padding {
+  padding-left: 6px !important;
+}
+
+.kit-selection-calendar .p-button.p-button-icon-only {
+  height: 39.6px !important;
+}
+
+.p-column-filter-buttonbar .p-button{
+  display: none !important;
+}
+
+.add-beacon-container .p-tabview-nav {
+  flex-wrap: nowrap;
+}
+
+.fixed-height-card .p-card {
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+}
+
+.fixed-height-card .p-card .p-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fixed-height-card .p-card .p-card-footer .p-button .p-button-icon-right {
+  transform: translateY(2px);
+}
+
+.p-button.p-button {
+  cursor: pointer !important;
+}
+
+td {
+  word-break: normal;
+  padding: 8px !important;
+  font-size: 0.9rem !important;
+}
+
+th {
+  white-space: inherit;
+  padding: 8px !important;
+  font-size: 0.95rem !important;
+}
+
+.minWidth800 {
+  min-width: 800px;
+}
+
+.shortInput .p-inputtext{
+  width: 80px;
+}

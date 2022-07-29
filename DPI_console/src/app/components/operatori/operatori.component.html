@@ -1,0 +1,168 @@
+<p-table [value]="operatoriList" #dt2 [paginator]="true" [rows]="10" [loading]="loading"
+    styleClass="p-datatable-gridlines" [globalFilterFields]="['nominativo','tipoOperatore.nome','matricola','email','numeroTelefono', 'idDispositivo',
+    'elencoCommesse' ]">
+    <ng-template pTemplate="caption">
+        <div class="space-between-flexItems">
+            <div>
+                <span class="p-input-icon-left p-ml-auto mr-8">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                        placeholder="{{'OPERATORI_CMP.CERCA' | translate}}" />
+                </span>
+                <!-- <button pButton label="{{'OPERATORI_CMP.PULISCI' | translate}}" class="p-button-outlined"
+                    icon="pi pi-filter-slash" (click)="clear(dt2)"></button> -->
+            </div>
+            <div>
+                <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel(dt2)" label="Esporta"
+                    class="p-button-success mr-8" pTooltip="XLS" tooltipPosition="bottom"></button>
+                <button pButton label="{{'OPERATORI_CMP.AGGIUNGI' | translate}}" class="p-button-success"
+                    icon="pi pi-plus" (click)="onAddOperatore()"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="nominativo">{{'OPERATORI_CMP.NOMINATIVO' | translate}} <p-sortIcon field="nominativo">
+                </p-sortIcon>
+                <p-columnFilter field="nominativo" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Nominativo</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="numeroTelefono">{{'OPERATORI_CMP.TELEFONO' | translate}}<p-sortIcon
+                    field="numeroTelefono">
+                </p-sortIcon>
+                <p-columnFilter field="numeroTelefono" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Numero di telefono</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="email">{{'OPERATORI_CMP.EMAIL' | translate}}<p-sortIcon field="email">
+                </p-sortIcon>
+                <p-columnFilter field="email" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Email</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th>Commessa
+                <p-columnFilter field="elencoCommesse" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Commesse</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="tipoOperatore.nome">{{'OPERATORI_CMP.TIPO' | translate}} <p-sortIcon
+                    field="tipoOperatore.nome">
+                </p-sortIcon>
+                <p-columnFilter field="tipoOperatore.id" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span>Selezione tipo operatore</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-multiSelect [(ngModel)]="tipiOperatoriSelected" [options]="tipiOperatori"
+                            (onChange)="filter($event.value)" optionLabel="nome" optionValue="id">
+                        </p-multiSelect>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="idDispositivo">{{'OPERATORI_CMP.IDENTIFICATIVO' | translate}} <p-sortIcon
+                    field="idDispositivo">
+                </p-sortIcon>
+                <p-columnFilter field="idDispositivo" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">ID dispositivo</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="matricola">{{'OPERATORI_CMP.MATRICOLA' | translate}} <p-sortIcon field="matricola">
+                </p-sortIcon>
+                <p-columnFilter field="matricola" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Matricola</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <!-- <th>{{'OPERATORI_CMP.COMMESSE' | translate}}
+            </th> -->
+            <th>{{'OPERATORI_CMP.COMMESSE_ADD' | translate}}
+            </th>
+            <th>{{'OPERATORI_CMP.MODIFICA_PSW' | translate}}
+            </th>
+            <th>Operazioni
+            </th>
+            <!-- <th>{{'OPERATORI_CMP.ELIMINA' | translate}}
+            </th> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-operatore>
+        <tr>
+            <td class="break-word">{{operatore.nominativo}}</td>
+            <td class="break-word">{{operatore.numeroTelefono ? operatore.numeroTelefono : '-'}}</td>
+            <td class="break-word">{{operatore.email ?operatore.email : '-'}}</td>
+            <td class="break-word">{{getCommessa(operatore)}}</td>
+            <td>{{operatore.tipoOperatore.nome}}</td>
+            <td style="word-break: break-all;">{{operatore.idDispositivo}}</td>
+            <td style="word-break: break-all;">{{operatore.matricola}}</td>
+            <!-- <td>{{operatore.operatoreSediCommesse.sedeCommessa ? operatore.operatoreSediCommesse.sedeCommessa.commessa.nome : ''}}</td> -->
+            <td><button pButton label="{{showTextButton ? ('OPERATORI_CMP.COMMESSE_ADD_BTN' | translate) : ''}}"
+                    class="p-button-outlined p-button" icon="pi pi-plus" [disabled]="operatore.tipoOperatore.id==2"
+                    (click)="onAssociaCommesse(operatore)"></button></td>
+            <td><button pButton label="{{showTextButton ? ('OPERATORI_CMP.MODIFICA_PSW_BTN' | translate) : ''}}"
+                    class="p-button-outlined p-button" [disabled]="operatore.tipoOperatore.id==2" icon="pi pi-key"
+                    (click)="onResetPassword(operatore.id)"></button></td>
+            <td>
+                <div class="btns-operazioni">
+                    <button pButton class="p-button-outlined p-button mr-8" [disabled]="operatore.tipoOperatore.id==2"
+                        icon="pi pi-pencil" (click)="onUpdateOperatore(operatore)"></button>
+                    <button pButton class="p-button-outlined p-button-danger" icon="pi pi-times"
+                        [disabled]="operatore.tipoOperatore.id==2" (click)="onDeleteOperatore(operatore.id)"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<!-- <p-toast></p-toast> -->
+
+<p-dialog header="{{ 'OPERATORI_CMP.MODIFICA_PSW' | translate}}" [modal]="true" [(visible)]="display">
+    <div class="grid" *ngIf="display">
+        <label for="password">
+            {{'ADD_ADMIN_MODAL.NEW_PASSWORD' | translate}}
+        </label>
+        <p-password class="change-password" id="password" [(ngModel)]="password" [toggleMask]="true"></p-password>
+        <label for="passwordConfrim">
+            {{'ADD_ADMIN_MODAL.CONF_PASSWORD' | translate}}
+        </label>
+        <p-password [feedback]="false" class="change-password" id="passwordConfrim" [(ngModel)]="passwordConfrim"
+            [toggleMask]="true"></p-password>
+        <button pButton class="p-button" [disabled]="!disableChangePsw() || !password"
+            label="{{'ADD_ADMIN_MODAL.CONFIRM' | translate}}" (click)="onConfirm()">
+        </button>
+    </div>
+</p-dialog>
+
+<p-confirmDialog header="{{ 'OPERATORI_CMP.CONFIRM_HEAD' | translate}}" icon="pi pi-exclamation-triangle">
+</p-confirmDialog>

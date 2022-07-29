@@ -1,0 +1,136 @@
+<div class="add-beacon-container">
+    <div class="first-block">
+        <p-tabView>
+            <p-tabPanel header="{{'AGGIUNGI_DPI_MODAL.CREA_DPI' | translate}}">
+                <p-scrollPanel [style]="{width: '100%', height: '250px'}">
+                <div>
+                    <div class="kit-form">
+                        <div class="kit-form-top">
+                            <div class="kit-form-field">
+                                <div>
+                                    <p-dropdown [options]="tipiDpi" [(ngModel)]="selectedTipoDpi" optionLabel="nome"
+                                        [disabled]="true" [showClear]="true"
+                                        placeholder="{{'AGGIUNGI_DPI_MODAL.SELEZIONE_TIPO' | translate}}">
+                                        <ng-template pTemplate="selectedItem">
+                                            <div class="left-content-flexItems" *ngIf="selectedTipoDpi">
+                                                <img [smartIcon]="selectedTipoDpi.nomeIcona"
+                                                    class="img-drop-size" />
+                                                <span> {{selectedTipoDpi.nome}}</span>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template let-tipo pTemplate="item">
+                                            <div class="left-content-flexItems">
+                                                <img [smartIcon]="tipo.nomeIcona"
+                                                    class="img-drop-size" />
+                                                <span> {{tipo.nome}}</span>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </div>
+                                <div class="img-div" *ngIf="selectedTipoDpi">
+                                    <img [smartIcon]="selectedTipoDpi.nomeIcona"
+                                        class="img-size" />
+                                </div>
+                            </div>
+                            <div class="kit-form-field">
+                                <p-multiSelect [options]="elencoSettori" [(ngModel)]="selectedSettore"
+                                    optionLabel="nome" optionValue="id" optionDisabled="multiselectDisabled"
+                                    placeholder="{{'ADD_KIT_COMPONENT.SEL_SETTORE' | translate}}">
+                                </p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="kit-form-bottom">
+                            <div class="kit-form-col">
+                                <div class="kit-form-field"><label for="codice">{{'AGGIUNGI_DPI_MODAL.CODICE' | translate}}*:</label></div>
+                                <div class="kit-form-field noBtm"><label for="dataScadenza">{{'AGGIUNGI_DPI_MODAL.SCADENZA' | translate}}*:</label></div>
+                                <div class="kit-form-field borderbot"></div>
+                                <div class="kit-form-field mt-14">{{'AGGIUNGI_DPI_MODAL.MARCA' | translate}}:</div>
+                                <div class="kit-form-field">{{'AGGIUNGI_DPI_MODAL.MODELLO' | translate}}:</div>
+                                <div class="kit-form-field"><label for="note">{{'AGGIUNGI_DPI_MODAL.NOTE' | translate}}:</label></div>
+                            </div>
+                            <div class="kit-form-col">
+                                <div class="kit-form-field"><input pInputText [disabled]="disableCodice" type="text" id="codice" [(ngModel)]="codice"></div>
+                                <div class="kit-form-field noBtm shortInput">
+                                    <input pInputText type="number" id="mesiScadenza" [disabled]="checked" [(ngModel)]="mesiScadenza" (input)="onChangeMese()" min="0">
+                                    Non Scade<p-checkbox binary="true" (onChange)="onNonScade($event)" [(ngModel)]="checked"></p-checkbox>
+                                </div>
+                                <div class="kit-form-field borderbot">
+                                    <span *ngIf="!checked && mesiScadenza && mesiScadenza > 0">Anteprima: {{dataScadenza | formatDateShort}}</span>
+                                </div>
+                                <div class="kit-form-field mt-14"><input pInputText type="text" id="marca" [(ngModel)]="marca"></div>
+                                <div class="kit-form-field"><input pInputText type="text" id="modello" [(ngModel)]="modello"></div>
+                                <div class="kit-form-field mb-20"><textarea [rows]="2" [cols]="22" pInputTextarea [(ngModel)]="note"></textarea></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p-scrollPanel>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div class="separator-block">
+        <p-divider layout="vertical">
+        </p-divider>
+    </div>
+    <div class="second-block">
+        <p-tabView [(activeIndex)]="tabIndex">
+            <p-tabPanel [disabled]="disabledFirstPanel" header="{{'AGGIUNGI_DPI_MODAL.CREA_BEACON' | translate}}">
+                <div class="kit-form">
+                    <div class="kit-form-top">
+                        <div class="kit-form-col">
+                            <div class="kit-form-field">
+                                <p-dropdown [options]="tipiBeacon" [(ngModel)]="selectedTipoBeacon" optionLabel="nome"
+                                    [disabled]="true" [showClear]="true"
+                                    placeholder="{{'AGGIUNGI_DPI_MODAL.SELEZIONE_TIPO' | translate}}"></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kit-form-bottom">
+                        <div class="kit-form-col">
+                            <div class="kit-form-field"> <label for="seriale">{{'AGGIUNGI_DPI_MODAL.SERIALE' | translate}}*:</label></div>
+                        </div>
+                        <div class="kit-form-col">
+                            <div class="kit-form-field"><input maxlength="17" pInputText type="text" id="seriale" (keyup)="onChangeBeacon($event)" [(ngModel)]="serialeBeacon"></div>
+                            <!-- <div class="kit-form-field"><input pInputText type="text" id="seriale" [(ngModel)]="serialeBeacon"></div> -->
+                        </div>
+                        <span *ngIf="!useQRCode">
+                            <p-button icon="pi pi-camera"  (onClick)="useCamera()"></p-button>
+                        </span>
+                        <span *ngIf="useQRCode">
+                            <button pButton pRipple type="button" icon="pi pi-camera" class="p-button-secondary" (click)="useCamera()"></button>
+                        </span>
+                    </div>
+                    <div *ngIf="useQRCode">
+                        <zxing-scanner (scanSuccess)="onCodeResult($event)" (camerasFound)="onCamerasFound($event)"></zxing-scanner>
+                    </div>
+                </div>
+
+            </p-tabPanel>
+            <p-tabPanel header="{{'AGGIUNGI_DPI_MODAL.ASS_BEACON' | translate}}">
+                <div class="kit-form">
+                    <div class="kit-form-col">
+                        <div class="kit-form-field">
+                            <p-dropdown [options]="tipiBeacon" [(ngModel)]="selectedTipoBeacon" optionLabel="nome"
+                                [disabled]="true" [showClear]="true"
+                                placeholder="{{'AGGIUNGI_DPI_MODAL.SELEZIONE_TIPO' | translate}}"></p-dropdown>
+                        </div>
+                        <div class="kit-form-field">
+                            <p-dropdown [options]="customElencoBeacon" [(ngModel)]="beacon" optionLabel="seriale"
+                                [showClear]="true" placeholder="{{'AGGIUNGI_DPI_MODAL.SELEZIONE_BEACON' | translate}}">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div class="kit-form-col">
+                        <div class="kit-form-field"></div>
+                        <div class="kit-form-field"></div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>
+<div class="salva-btn">
+    <button pButton class="p-button" [disabled]="!isValidForm()" label="{{'AGGIUNGI_DPI_MODAL.SALVA' | translate}}"
+        (click)="onSalva()">
+    </button>
+</div>

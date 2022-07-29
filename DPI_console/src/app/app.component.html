@@ -1,0 +1,51 @@
+<div class="container">
+  <div *ngIf="!isLogged">
+    <app-header></app-header>
+  </div>
+  <div *ngIf="isLogged">
+    <div id="alarm-badges">
+      <div *ngIf="dangerAlarms > 0">
+        <p-badge [value]="dangerAlarms" severity="danger" severity="danger"></p-badge>
+      </div>
+      <div *ngIf="warnAlarms > 0">
+        <p-badge [value]="warnAlarms" severity="warning" severity="warning"></p-badge>
+      </div> 
+    </div>
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <img src="assets/Images/logoEasy.png" (click)="onLogoClick()" height="40" class="menu-logo">
+      </ng-template>
+      <ng-template pTemplate="end">
+        <p-splitButton [label]="utenteLogged.username" [model]="splitBtnItems" icon="pi pi-user"></p-splitButton>
+      </ng-template>
+    </p-menubar>
+    <p-breadcrumb [model]="breadcrumbItems" [home]="homeItem"></p-breadcrumb>
+  </div>
+  <div class="pb-56">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+<p-dialog header="{{ 'ADMIN_CMP.MODIFICA_PSW' | translate}}" [modal]="true" [(visible)]="display">
+  <div class="grid" *ngIf="display">
+    <label for="passwordOld">
+      {{'ADD_ADMIN_MODAL.OLD_PASSWORD' | translate}}*
+    </label>
+    <p-password class="change-password" id="passwordOld" [feedback]="false" [(ngModel)]="passwordOld" [toggleMask]="true"></p-password>
+    <label for="password">
+      {{'ADD_ADMIN_MODAL.NEW_PASSWORD' | translate}}*
+    </label>
+    <p-password class="change-password" id="password" [(ngModel)]="password" [toggleMask]="true"></p-password>
+    <label for="confPassword">
+      {{'ADD_ADMIN_MODAL.RIPETI_NEW_PASSWORD' | translate}}*
+    </label>
+    <p-password class="change-password" id="confPassword" [(ngModel)]="confPassword" [toggleMask]="true"></p-password>
+    <button pButton class="p-button" [disabled]="!password || password!=confPassword" label="{{'ADD_ADMIN_MODAL.CONFIRM' | translate}}"
+      (click)="onConfirm()">
+    </button>
+  </div>
+</p-dialog>
+
+<p-toast></p-toast>
+<!-- position="center" -->

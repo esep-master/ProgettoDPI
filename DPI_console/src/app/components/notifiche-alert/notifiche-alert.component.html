@@ -1,0 +1,484 @@
+<div class="notifiche-alert-container">
+    <p-tabView (onChange)="handleChange($event)" [(activeIndex)]="tabIndex">
+
+        <p-tabPanel header="Uomo a Terra">
+
+            <!-- KIT ALLARMATI CON UOMO A TERRA -->
+
+            <div class="mb-16">
+                <p-table [value]="kitsUomoATerra" dataKey="idAllarme" #dt6 [paginator]="true" [rows]="10"
+                    [loading]="loading" styleClass="p-datatable-gridlines">
+                    <ng-template pTemplate="caption">
+                        <div class="centered">
+                            <div>Kit con allarme Uomo a terra</div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 4rem"></th>
+                            <th pSortableColumn="modello">Modello <p-sortIcon field="modello"></p-sortIcon>
+                                <p-columnFilter field="modello" matchMode="contains" display="menu"
+                                    [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="margin-top-left-bold">
+                                            <span class="p-text-bold">Modello Kit</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </th>
+                            <th pSortableColumn="commessa">Commessa <p-sortIcon field="commessa"></p-sortIcon>
+                                <p-columnFilter field="commessa" matchMode="contains" display="menu"
+                                    [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="margin-top-left-bold">
+                                            <span class="p-text-bold">Commessa</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </th>
+                            <th pSortableColumn="nominativo">Operatore <p-sortIcon field="nominativo">
+                                </p-sortIcon>
+                                <p-columnFilter field="nominativo" matchMode="contains" display="menu"
+                                    [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="margin-top-left-bold">
+                                            <span class="p-text-bold">Operatore</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </th>
+                            <th pSortableColumn="settore">Settore <p-sortIcon field="settore"></p-sortIcon>
+                                <p-columnFilter field="settoreId" matchMode="in" display="menu" [showMatchModes]="false"
+                                    [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="margin-top-left-bold">
+                                            <span>Selezione Settore</span>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                        <p-multiSelect [(ngModel)]="selectedSettori" [options]="settoriList"
+                                            (onChange)="filter($event.value)" optionLabel="nome" optionValue="id">
+                                        </p-multiSelect>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </th>
+                            <th pSortableColumn="data">Data Allarme<p-sortIcon field="data"></p-sortIcon>
+                            </th>
+                            <th pSortableColumn="dataIntervento">Data Intervento <p-sortIcon field="dataIntervento">
+                                </p-sortIcon>
+                            </th>
+                            <th>Lat & Long
+                                <p-columnFilter field="latLong" matchMode="contains" display="menu"
+                                    [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                    <ng-template pTemplate="header">
+                                        <div class="margin-top-left-bold">
+                                            <span class="p-text-bold">Latitudine o longitudine</span>
+                                        </div>
+                                    </ng-template>
+                                </p-columnFilter>
+                            </th>
+                            <th>Gestisci
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-allarme>
+                        <tr style="animation: blinkingBackground 2s infinite;">
+                            <td>
+                                <div class="v-align-center">
+                                    <img class="img-size" smartIcon="warnHigh" alt="">
+                                </div>
+                            </td>
+                            <td>{{allarme.modello}}</td>
+                            <td>{{allarme.commessa}}</td>
+                            <td>{{allarme.nominativo}}</td>
+                            <td>{{allarme.settore}}</td>
+                            <td>{{allarme.data | formatDate}}</td>
+                            <td>{{allarme.dataIntervento | formatDate}}</td>
+                            <td>{{ coordFormat(allarme.latitudine, allarme.longitudine) }}</td>
+                            <td *ngIf="allarme.lavorazione"><button pButton label="Chiudi" class="p-button"
+                                    icon="pi pi-pencil" (click)="onGestisciAllarme(allarme)"></button></td>
+                            <td *ngIf="!allarme.lavorazione"><button pButton label="Prendi in carico" class="p-button"
+                                    icon="pi pi-pencil" (click)="onGestisciAllarme(allarme)"></button></td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="9">Non ci sono allarmi di questo tipo</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+        </p-tabPanel>
+
+        <p-tabPanel header="{{'NOTIFICHE_ALERT_CMP.KIT_ALLARMATI' | translate}}">
+
+            <!-- KIT ALLARMATI -->
+
+            <p-table [value]="kits" dataKey="idKit" #dt6 [paginator]="true" [rows]="10" [loading]="loading"
+                styleClass="p-datatable-gridlines">
+                <ng-template pTemplate="caption">
+                    <div class="centered">
+                        <div>Kit e dpi allarmati</div>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem"></th>
+                        <th pSortableColumn="modello">Modello <p-sortIcon field="modello"></p-sortIcon>
+                            <p-columnFilter field="modello" matchMode="contains" display="menu" [showMatchModes]="false"
+                                [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Modello</span>
+                                    </div>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <!-- <th pSortableColumn="commessa">Commessa <p-sortIcon field="commessa"></p-sortIcon> </th>-->
+                        <th pSortableColumn="nominativo">Operatore <p-sortIcon field="nominativo">
+                            </p-sortIcon>
+                            <p-columnFilter field="nominativo" matchMode="contains" display="menu"
+                                [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Operatore</span>
+                                    </div>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th pSortableColumn="settore">Settore <p-sortIcon field="settore"></p-sortIcon>
+                            <p-columnFilter field="settoreId" matchMode="in" display="menu" [showMatchModes]="false"
+                                [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span>Selezione Settore</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-multiSelect [(ngModel)]="selectedSettori" [options]="settoriList"
+                                        (onChange)="filter($event.value)" optionLabel="nome" optionValue="id">
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <!-- <th pSortableColumn="intervento.dataInizio">Inizio Intervento<p-sortIcon
+                            field="intervento.dataInizio">
+                        </p-sortIcon>
+                        </th> -->
+                        <!-- <th pSortableColumn="dataAssegnazione">Data <p-sortIcon field="dataAssegnazione"></p-sortIcon>
+                        </th> -->
+                        <!-- <th>Tipo Alert
+                        </th> -->
+                        <!-- <th>Gestisci
+                        </th> -->
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-kit let-expanded="expanded">
+                    <tr>
+                        <td class="p-reset-padding">
+                            <button type="button" pButton pRipple [pRowToggler]="kit"
+                                class="p-button-text p-button-rounded p-button-plain"
+                                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                        </td>
+                        <td>{{kit.modello}}</td>
+                        <!-- <td>{{kit.commessa}}</td> -->
+                        <td>{{kit.nominativo}}</td>
+                        <td>{{kit.settore}}</td>
+                        <!-- <td>{{kit.dataInizioIntervento | formatDate}}</td> -->
+                        <!-- <td>{{formatDate(kit.dataAssegnazione)}}</td> -->
+                        <!-- <td>
+                            <div class="v-align-center">
+                                <img class="img-size" smartIcon="warnMod"
+                                    alt="">{{kit.tipoAllarme}}
+                            </div>
+                        </td> -->
+                        <!-- <td *ngIf="kit.lavorazione"><button pButton label="Chiudi" class="p-button p-button-outlined" icon="pi pi-pencil"
+                                (click)="onGestisciAllarme(kit)"></button></td>
+                        <td *ngIf="!kit.lavorazione"><button pButton label="Prendi in carico" class="p-button p-button-outlined"
+                                icon="pi pi-pencil" (click)="onGestisciAllarme(kit)"></button></td> -->
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="4">Non ci sono allarmi di questo tipo</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-kit>
+                    <tr>
+                        <td colspan="4">
+                            <div class="p-p-3">
+                                <p-table [value]="kit.DPI" dataKey="idDpi" [sortField]="sort.field"
+                                    [sortOrder]="sort.order" (onSort)="onSort($event)">
+                                    <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th pSortableColumn="dpi.id">Id <p-sortIcon field="dpi.id"></p-sortIcon>
+                                            </th> -->
+                        <th>Allarme
+                            <p-columnFilter field="tipoAllarme" matchMode="in" display="menu" [showMatchModes]="false"
+                                [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Seleziona tipo allarme</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-multiSelect [(ngModel)]="selectedTipoAllarme" [options]="tipiAllarmi"
+                                        (onChange)="filter($event.value)" optionLabel="nome" optionValue="nome">
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th pSortableColumn="commessa">Commessa<p-sortIcon field="commessa"></p-sortIcon>
+                            <p-columnFilter field="commessa" matchMode="contains" display="menu"
+                                [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Commessa</span>
+                                    </div>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th pSortableColumn="codice">Codice DPI<p-sortIcon field="codice"></p-sortIcon>
+                            <p-columnFilter field="codice" matchMode="contains" display="menu" [showMatchModes]="false"
+                                [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Codice DPI</span>
+                                    </div>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th pSortableColumn="tipoDpi">Tipo DPI<p-sortIcon field="tipoDpi"></p-sortIcon>
+                            <p-columnFilter field="tipoDpi" matchMode="in" display="menu" [showMatchModes]="false"
+                                [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="header">
+                                    <div class="margin-top-left-bold">
+                                        <span class="p-text-bold">Seleziona tipo DPI</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-multiSelect [(ngModel)]="selectedTipiDpi" [options]="tipiDpi"
+                                        (onChange)="filter($event.value)" optionLabel="nome" optionValue="nome">
+                                    </p-multiSelect>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                        <th pSortableColumn="data">Data Allarme<p-sortIcon field="data"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="dataInizioIntervento">Data Intervento<p-sortIcon
+                                field="dataInizioIntervento"></p-sortIcon>
+                        </th>
+                        <!-- <th pSortableColumn="dpi.beacon.seriale">Beacon <p-sortIcon field="dpi.beacon.seriale">
+                                                </p-sortIcon>
+                                            </th> -->
+                        <th>Lat & Long</th>
+                        <th>Gestisci</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-dpi>
+                    <!-- <tr *ngIf="dpi.dpi.alert" style="background-color: #f02e55; color: white;">
+                                            <td>{{dpi.dpi.id}}</td>
+                                            <td>{{dpi.dpi.modello}}</td>
+                                            <td>{{formatDate(dpi.dpi.dataScadenza)}}</td>
+                                            <td>{{dpi.dpi.tipoDPI.nome}}</td>
+                                            <td>{{dpi.dpi.beacon.seriale}}</td>
+                                        </tr> -->
+                    <!-- *ngIf="!dpi.dpi.alert" -->
+                    <tr>
+                        <!-- <td>{{dpi.dpi.id}}</td> -->
+                        <td class="break-word">
+                            <div class="v-align-center">
+                                <img class="img-size" smartIcon="warnMod" alt="">{{dpi.tipoAllarme}}
+                            </div>
+                        </td>
+                        <td class="break-word">{{dpi.commessa}}</td>
+                        <td class="break-word">{{dpi.codice}}</td>
+                        <td class="break-word">{{dpi.tipoDpi}}</td>
+                        <td class="break-word">{{dpi.data | formatDate}}</td>
+                        <td class="break-word">{{dpi.dataInizioIntervento | formatDate}}</td>
+                        <td class="break-word">{{ coordFormat(dpi.latitudine, dpi.longitudine) }}</td>
+                        <td *ngIf="dpi.lavorazione"><button pButton label="{{showTextButton ? 'Chiudi' : ''}}"
+                                class="p-button p-button-outlined" icon="pi pi-pencil"
+                                (click)="onGestisciAllarme(dpi)"></button></td>
+                        <td *ngIf="!dpi.lavorazione"><button pButton
+                                label="{{showTextButton ? 'Prendi in carico' : ''}}" class="p-button p-button-outlined"
+                                icon="pi pi-pencil" (click)="onGestisciAllarme(dpi)"></button></td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8">Non ci sono allarmi di questo tipo</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+</div>
+</td>
+</tr>
+</ng-template>
+</p-table>
+</p-tabPanel>
+
+<!-- STORICO ALLARMI -->
+
+<p-tabPanel header="{{'NOTIFICHE_ALERT_CMP.STORICO_ALLARMI' | translate}}">
+    <p-table [value]="alertStoricoList" [paginator]="true" [rows]="10" styleClass="p-datatable-gridlines" #dt13
+        [totalRecords]="totalRecords" [loading]="loadingStorico" [globalFilterFields]="['dpi.codice','tipoAllarme.nome', 'intervento.operatore.nominativo', 'statoAllarme.nome', 
+        'utentePresaInCarico.username', 'utenteRisoluzione.username', 'note']">
+        <ng-template pTemplate="caption">
+            <div class="tab-caption">
+                <span class="p-input-icon-left p-ml-auto mr-8">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt13.filterGlobal($event.target.value, 'contains')"
+                        placeholder="{{'BEACON_DPI_CMP.CERCA' | translate}}" />
+                </span>
+                <div class="data-storico">
+                    Carica dati a partire da:
+                    <p-calendar [(ngModel)]="dataStoricoSelected" [maxDate]="maxDateValue" [showIcon]="true"
+                        (onSelect)="caricaStoricoAllarmi(true,dataStoricoSelected)" dateFormat="dd/mm/yy"></p-calendar>
+                </div>
+                <div>
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel(dt13)"
+                        label="Esporta" class="p-button-success" pTooltip="XLS" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="tipoAllarme.nome">Allarme <p-sortIcon field="tipoAllarme.nome">
+                    </p-sortIcon>
+                    <p-columnFilter field="tipoAllarme.nome" matchMode="in" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="margin-top-left-bold">
+                                <span class="p-text-bold">Seleziona tipo allarme</span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect [(ngModel)]="selectedTipoAllarme" [options]="tipiAllarmi"
+                                (onChange)="filter($event.value)" optionLabel="nome" optionValue="nome">
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="dpi.codice">DPI <p-sortIcon field="dpi.codice">
+                    </p-sortIcon>
+                    <p-columnFilter field="dpi.codice" matchMode="contains" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="margin-top-left-bold">
+                                <span class="p-text-bold">Codice DPI</span>
+                            </div>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="intervento.sedeCommessa.commessa.nome">Commessa <p-sortIcon
+                        field="intervento.sedeCommessa.commessa.nome">
+                    </p-sortIcon>
+                    <p-columnFilter field="intervento.sedeCommessa.commessa.nome" matchMode="in" display="menu"
+                        [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="margin-top-left-bold">
+                                <span class="p-text-bold">Seleziona commesse</span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect [(ngModel)]="selectedCommesse" [options]="elencoCommesse"
+                                (onChange)="filter($event.value)">
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="intervento.operatore.nominativo">{{'NOTIFICHE_ALERT_CMP.NOMINATIVO' |
+                    translate}}
+                    <p-sortIcon field="intervento.operatore.nominativo">
+                    </p-sortIcon>
+                    <p-columnFilter field="intervento.operatore.nominativo" matchMode="contains" display="menu"
+                        [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="margin-top-left-bold">
+                                <span class="p-text-bold">Operaio</span>
+                            </div>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="statoAllarme.nome">{{'NOTIFICHE_ALERT_CMP.STATO' | translate}} <p-sortIcon
+                        field="statoAllarme.nome">
+                    </p-sortIcon>
+                    <p-columnFilter field="statoAllarme.id" matchMode="in" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="header">
+                            <div class="margin-top-left-bold">
+                                <span class="p-text-bold">Selezione Stato</span>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect [(ngModel)]="selectedStatiAllarme" [options]="statiAllarmeList"
+                                (onChange)="filter($event.value)" optionLabel="nome" optionValue="id">
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th pSortableColumn="intervento.dataInizio">Inizio Intervento<p-sortIcon field="intervento.dataInizio">
+                    </p-sortIcon>
+                </th>
+                <!-- <th>{{'NOTIFICHE_ALERT_CMP.DATA_ALLARME' | translate}}</th> -->
+                <th pSortableColumn="dataAllarme">{{'NOTIFICHE_ALERT_CMP.DATA_ALLARME' | translate}} <p-sortIcon
+                        field="dataAllarme">
+                    </p-sortIcon>
+                </th>
+                <!-- <th>{{'NOTIFICHE_ALERT_CMP.PRESA_IN_CARICO_DA' | translate}}</th>
+                        <th>{{'NOTIFICHE_ALERT_CMP.CHIUSO_DA' | translate}}</th> -->
+                <!-- <th>{{'NOTIFICHE_ALERT_CMP.DATA_RISOLUZIONE' | translate}}</th> -->
+                <th pSortableColumn="dataRisoluzione">{{'NOTIFICHE_ALERT_CMP.DATA_RISOLUZIONE' | translate}}
+                    <p-sortIcon field="dataRisoluzione">
+                    </p-sortIcon>
+                </th>
+                <!-- <th>Lat & Long</th> -->
+                <!-- <th>{{'NOTIFICHE_ALERT_CMP.NOTE' | translate}}</th> -->
+                <th>Dettaglio</th>
+            </tr>
+            <!-- <tr>
+                <th><p-columnFilter type="text" field="nome"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="stato"></p-columnFilter></th>
+            </tr> -->
+        </ng-template>
+        <ng-template pTemplate="body" let-alert>
+            <tr>
+                <td class="break-word">{{alert.tipoAllarme.nome}}</td>
+                <td class="break-word">{{alert.dpi ? alert.dpi.codice : ''}}</td>
+                <td class="break-word">{{alert.intervento ? alert.intervento.sedeCommessa.commessa.nome : ''}}</td>
+                <td class="break-word">{{alert.intervento ? alert.intervento.operatore.nominativo : ''}}</td>
+                <td class="break-word">{{alert.statoAllarme.nome}}</td>
+                <td class="break-word">{{alert.intervento ? (alert.intervento.dataInizio | formatDate) : '' }}</td>
+                <td class="break-word">{{alert.dataAllarme | formatDate}}</td>
+                <!-- <td>{{alert.utentePresaInCarico ? alert.utentePresaInCarico.username : ''}}</td> -->
+                <!-- <td>{{alert.utenteRisoluzione ? alert.utenteRisoluzione.username : ''}}</td> -->
+                <td class="break-word">{{alert.dataRisoluzione ? (alert.dataRisoluzione | formatDate) : '-'}}</td>
+                <!-- <td>{{ coordFormat(alert.latitudine, alert.longitudine) }}</td> -->
+                <!-- <td>{{alert.note}}</td> -->
+                <td class="v-align-center">
+                    <button type="button" pButton pRipple icon="pi pi-info-circle" (click)="dettaglioAllarme(alert)"
+                        class="p-button p-button-outlined"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-tabPanel>
+</p-tabView>
+</div>
+
+<p-dialog [header]="headerGestioneAlert" [modal]="true" [(visible)]="display">
+    <div class="grid" *ngIf="display">
+        <label for="note">
+            Note:
+        </label>
+        <div class="m-16">
+            <textarea [rows]="2" [cols]="30" pInputTextarea [(ngModel)]="note"></textarea>
+        </div>
+        <button pButton class="p-button" [disabled]="!note" label="Conferma" (click)="onConfirm()">
+        </button>
+    </div>
+</p-dialog>
+
+<app-loading [isWaiting]="isWaitingService"></app-loading>

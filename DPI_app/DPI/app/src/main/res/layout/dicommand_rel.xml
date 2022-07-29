@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 01/04/2019 17:46
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dicommand_rel_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dicommand_rel_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/dicommand_rel_channel_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Channel:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_channel_spin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_channel_spin" />
+
+        <it.bleb.dpi.utils.CustomSpinner
+            android:id="@+id/dicommand_rel_channel_spin"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_channel_desc"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dicommand_rel_toggling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_rel_main">
+
+        <TextView
+            android:id="@+id/dicommand_rel_starting_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Starting:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_starting_spin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_starting_spin" />
+
+        <it.bleb.dpi.utils.CustomSpinner
+            android:id="@+id/dicommand_rel_starting_spin"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_starting_desc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_high_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="High interval:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_high_seek"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_high_seek" />
+
+        <SeekBar
+            android:id="@+id/dicommand_rel_high_seek"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:max="254"
+            android:textSize="@dimen/font_size"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/dicommand_rel_high_txt"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_high_desc"
+            app:layout_constraintTop_toBottomOf="@+id/dicommand_rel_starting_spin" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_high_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="1s"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_high_seek"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_high_seek" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_low_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Low interval:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_low_seek"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_low_seek" />
+
+        <SeekBar
+            android:id="@+id/dicommand_rel_low_seek"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:max="254"
+            android:textSize="@dimen/font_size"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dicommand_rel_high_txt"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_high_desc"
+            app:layout_constraintTop_toBottomOf="@+id/dicommand_rel_high_seek" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_low_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="1s"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_low_seek"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_low_seek" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dicommand_rel_out"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_rel_toggling">
+
+        <SeekBar
+            android:id="@+id/dicommand_rel_out_seek"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:max="100"
+            android:textSize="@dimen/font_size"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dicommand_rel_out_txt"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_out_desc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_out_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Duty Cycle:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_out_seek"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_out_seek" />
+
+        <TextView
+            android:id="@+id/dicommand_rel_out_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_out_seek"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_out_seek" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dicommand_rel_relay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_rel_out">
+
+        <TextView
+            android:id="@+id/dicommand_rel_relay_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Status:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_rel_relay_spin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_rel_relay_spin" />
+
+        <it.bleb.dpi.utils.CustomSpinner
+            android:id="@+id/dicommand_rel_relay_spin"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_rel_relay_desc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

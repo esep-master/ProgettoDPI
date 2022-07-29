@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 28/03/2019 12:31
+  -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinner_item_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:padding="8dp"
+    android:singleLine="true"
+    android:textSize="@dimen/font_size">
+
+</TextView>

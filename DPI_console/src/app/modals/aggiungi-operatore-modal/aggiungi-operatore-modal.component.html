@@ -1,0 +1,75 @@
+<form [formGroup]="form">
+    <div class="form-content">
+        <!-- IDENTIFICATIVO -->
+        <div class="mr-16">
+            <label for="idDispositivo">
+                {{'ADD_OPERATORE_MODAL.IDENTIFICATIVO' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="idDispositivo" formControlName="idDispositivo">
+        </div>
+        <!-- MATRICOLA -->
+        <div class="mr-16">
+            <label for="matricola">
+                {{'ADD_OPERATORE_MODAL.MATRICOLA' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="matricola" formControlName="matricola">
+        </div>
+        <!-- NOMINATIVO -->
+        <div class="mr-16">
+            <label for="nominativo">
+                {{'ADD_OPERATORE_MODAL.NOMINATIVO' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="nominativo" formControlName="nominativo">
+        </div>
+    </div>
+    <div class="form-content">
+        <!-- TELEFONO -->
+        <div class="mr-16">
+            <label for="telefono">
+                {{'ADD_OPERATORE_MODAL.TELEFONO' | translate}}
+            </label>
+            <input pInputText type="number" class="form-control" id="telefono" formControlName="telefono">
+        </div>
+        <!-- EMAIL -->
+        <div class="mr-16">
+            <label for="email">
+                {{'ADD_OPERATORE_MODAL.EMAIL' | translate}}
+            </label>
+            <input pInputText type="text" class="form-control" id="email" formControlName="email">
+        </div>
+    </div>
+    <div class="form-content">
+        <!-- PSW -->
+        <div *ngIf="!isUpdate" class="mr-16">
+            <label for="password">
+                {{'ADD_OPERATORE_MODAL.PASSWORD' | translate}}*
+            </label>
+            <p-password id="password" formControlName="password" [toggleMask]="true"></p-password>
+        </div>
+        <!-- PSW CONF -->
+        <div *ngIf="!isUpdate" class="mr-16">
+            <label for="passwordConfirm">
+                {{'ADD_OPERATORE_MODAL.CONF_PASSWORD' | translate}}*
+            </label>
+            <p-password id="passwordConfirm" [feedback]="false" formControlName="passwordConfirm" [toggleMask]="true">
+            </p-password>
+        </div>
+    </div>
+
+    <!-- <div class="form-content"> -->
+    <!-- RISOLUZIONE_AUT -->
+    <!-- <div class="mr-16">
+            <label for="risoluzioneAutomatica">
+                {{'ADD_OPERATORE_MODAL.RISOLUZIONE_AUT' | translate}}
+            </label>
+            <p-checkbox inputId="risoluzioneAutomatica" formControlName="risoluzioneAutomatica" binary="true"
+                [(ngModel)]="risoluzioneAutomatica"></p-checkbox>
+        </div> -->
+    <!-- </div> -->
+
+    <div class="ta-right">
+        <button pButton class="p-button" type="button" [disabled]="!isFormValid()"
+            label="{{'ADD_OPERATORE_MODAL.CONFIRM' | translate}}" (click)="onSubmit()">
+        </button>
+    </div>
+</form>

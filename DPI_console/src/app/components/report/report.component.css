@@ -1,0 +1,27 @@
+.img-table-size {
+  height: 32px;
+}
+
+.v-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.m-8 {
+  margin: 8px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.tab-caption{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modifiche grafica */
+/* td {
+  overflow: auto;
+} */

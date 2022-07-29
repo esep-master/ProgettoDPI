@@ -1,0 +1,44 @@
+<div class="alarm-detail-container">
+    <div class="alarm-detail-block left separator">
+        <div class="alarm-detail-col left">
+            <div class="alarm-detail-field"><i class="pi pi-bell"> </i> Tipo Allarme: </div>
+            <div class="alarm-detail-field"><i class="pi pi-spinner"> </i> Stato: </div>
+            <div class="alarm-detail-field"><i class="pi pi-credit-card"> </i> DPI: </div>
+            <div class="alarm-detail-field"><i class="pi pi-briefcase"> </i> Kit: </div>
+            <div class="alarm-detail-field"><i class="pi pi-book"> </i> Commessa: </div>
+            <div class="alarm-detail-field"><i class="pi pi-user"> </i> Operaio: </div>
+            <div class="alarm-detail-field"><i class="pi pi-pencil"> </i> Note: </div>
+        </div>
+        <div class="alarm-detail-col right">
+            <div class="alarm-detail-field">{{allarme.tipoAllarme.nome}}</div>
+            <div class="alarm-detail-field">{{allarme.statoAllarme.nome}}</div>
+            <div class="alarm-detail-field">{{allarme.dpi ? allarme.dpi.codice : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.kit ? allarme.kit.modello : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.intervento ? allarme.intervento.sedeCommessa.commessa.nome : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.intervento ? allarme.intervento.operatore.nominativo : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.note}}</div>
+        </div>
+    </div>
+    <div class="alarm-detail-block right">
+        <div class="alarm-detail-col left">
+            <div class="alarm-detail-field"><i class="pi pi-calendar-plus"> </i> Inizio Intervento: </div>
+            <div class="alarm-detail-field"><i class="pi pi-calendar-plus"> </i> Fine Intervento: </div>
+            <div class="alarm-detail-field"><i class="pi pi-calendar-times"> </i> Data allarme: </div>
+            <div class="alarm-detail-field"><i class="pi pi-user-edit"> </i> Preso in carico da: </div>
+            <div class="alarm-detail-field"><i class="pi pi-user-minus"> </i> Risolto da: </div>
+            <div class="alarm-detail-field"><i class="pi pi-calendar-minus"> </i> Data risoluzione: </div>
+            <div class="alarm-detail-field"><i class="pi pi-angle-double-up"> </i> Latitudine: </div>
+            <div class="alarm-detail-field"><i class="pi pi-angle-double-right"> </i> Longitudine: </div>
+        </div>
+        <div class="alarm-detail-col right">
+            <div class="alarm-detail-field">{{allarme.intervento ? (allarme.intervento.dataInizio | formatDate) : '' }}</div>
+            <div class="alarm-detail-field">{{allarme.intervento ? (allarme.intervento.dataFine | formatDate) : '' }}</div>
+            <div class="alarm-detail-field">{{allarme.dataAllarme | formatDate}}</div>
+            <div class="alarm-detail-field">{{allarme.utentePresaInCarico ? allarme.utentePresaInCarico.username : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.utenteRisoluzione ? allarme.utenteRisoluzione.username : ''}}</div>
+            <div class="alarm-detail-field">{{allarme.dataRisoluzione | formatDate}}</div>
+            <div class="alarm-detail-field">{{coordFormat(allarme.latitudine)}}</div>
+            <div class="alarm-detail-field">{{coordFormat(allarme.longitudine)}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<p-table [value]="alertList" [paginator]="true" [rows]="5" styleClass="p-datatable-gridlines" [loading]="loading"
+    [globalFilterFields]="['nome','stato']">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="nome">{{'NOTIFICHE_ALERT_CMP.NOME' | translate}} <p-sortIcon field="nome">
+                </p-sortIcon>
+            </th>
+            <th pSortableColumn="stato">{{'NOTIFICHE_ALERT_CMP.STATO' | translate}} <p-sortIcon field="stato">
+                </p-sortIcon>
+            </th>
+            <th>Data Allarme</th>
+            <th>Data Risoluzione</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-alert>
+        <tr>
+            <td class="break-word">{{alert.tipoAllarme.nome}}</td>
+            <td class="break-word">{{alert.statoAllarme.nome}}</td>
+            <td class="break-word">{{alert.dataAllarme | formatDate}}</td>
+            <td class="break-word">{{alert.dataRisoluzione ? (alert.dataRisoluzione | formatDate) : '-'}}</td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,0 +1,46 @@
+<p-table [value]="settoriList" #dt8 [paginator]="true" [rows]="10" [loading]="loading"
+    styleClass="p-datatable-gridlines" [globalFilterFields]="['nome']">
+    <ng-template pTemplate="caption">
+        <div class="space-between-flexItems">
+            <div>
+                <span class="p-input-icon-left p-ml-auto mr-8">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt8.filterGlobal($event.target.value, 'contains')"
+                        placeholder="{{'OPERATORI_CMP.CERCA' | translate}}" />
+                </span>
+                <!-- <button pButton label="{{'OPERATORI_CMP.PULISCI' | translate}}" class="p-button-outlined"
+                    icon="pi pi-filter-slash" (click)="clear(dt8)"></button> -->
+            </div>
+            <button pButton label="{{'OPERATORI_CMP.AGGIUNGI' | translate}}" class="p-button-success" icon="pi pi-plus"
+                (click)="onInsSettore()"></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="nome">{{'OPERATORI_CMP.NOMINATIVO' | translate}} <p-sortIcon field="nome">
+                </p-sortIcon>
+            </th>
+
+            <th>{{'OPERATORI_CMP.MODIFICA' | translate}}
+            </th>
+
+            <th>{{'OPERATORI_CMP.ELIMINA' | translate}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-settore>
+        <tr>
+            <td>{{settore.nome}}</td>
+
+            <td><button pButton label="{{'OPERATORI_CMP.MODIFICA' | translate}}" class="p-button-outlined p-button"
+                    icon="pi pi-pencil" (click)="onUpdateSettore(settore)"></button></td>
+
+            <td><button pButton label="{{'OPERATORI_CMP.ELIMINA' | translate}}"
+                    class="p-button-outlined p-button-danger" icon="pi pi-times"
+                    (click)="onDeleteSettore(settore.id)"></button></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-confirmDialog header="{{ 'OPERATORI_CMP.DEL_ADMIN' | translate}}" icon="pi pi-exclamation-triangle">
+</p-confirmDialog>

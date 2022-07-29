@@ -1,0 +1,51 @@
+.notifiche-alert-container {
+  display: flex;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-bottom: 16px;
+}
+
+@keyframes blinkingBackground{
+    0%		{ background-color: #ff0000b7; color: white; }
+    50%		{ background-color: #ffffff; color: rgb(0, 0, 0); }
+    100%  { background-color: #ff0000b7; color: white; }
+}
+
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mb-16{
+  margin-bottom: 16px;
+}
+
+.v-align-center{
+  display: flex;
+  align-items: center;
+}
+
+.img-size{
+  height: 32px;
+  margin-right: 16px;
+}
+
+.grid{
+  display: grid;
+}
+
+.m-16{
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-caption{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+::ng-deep .data-storico .p-calendar .p-datepicker{
+  min-width: 160%;
+}

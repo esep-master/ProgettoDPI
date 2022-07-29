@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 27/02/2019 16:26
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+    <item android:drawable="@color/colorBackgroundSplash"/>
+
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="135"
+                android:endColor="#aafd5104"
+                android:startColor="#aa461af7" />
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:src="@drawable/blebricks_stack"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>

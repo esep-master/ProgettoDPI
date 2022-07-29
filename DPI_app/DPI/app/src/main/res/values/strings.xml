@@ -1,0 +1,117 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="splash_btn_tap" translatable="false">Tocca qui per selezionare il tuo BLE-B</string>
+    <string name="selection_txt_waiting" translatable="false">In attesa di un BLE-B…</string>
+    <string name="selection_address" translatable="false">(%1$s)</string>
+    <string name="selection_dbm" translatable="false">%1$d dBm</string>
+    <string name="enable_gps" translatable="false">Il GPS è richiesto da Bluetooth Low Energy. Per favore, accendilo.</string>
+    <string name="main_btn_selection" translatable="false">Tocca qui per selezionare il tuo BLE-B</string>
+    <string name="tab_resources" translatable="false">Risorse</string>
+    <string name="tab_interactions" translatable="false">Interazioni</string>
+    <string name="tab_interactions_active" translatable="false">Interazioni •</string>
+    <string name="main_txt_connectedto" translatable="false">Ascolto dell\'indirizzo:</string>
+    <string name="na" translatable="false">N.A.</string>
+    <string name="dash" translatable="false">--</string>
+    <string name="sentry_noaddress" translatable="false" >Tocca qui per scegliere il dispositivo da guardare</string>
+    <string name="sentry_found" translatable="false"><![CDATA[<b>%1$s</b><br/>is <b>%2$.1f m</b> far from your BLE-B<br/>(%3$d dBm)]]></string>
+    <string name="sentry_lost" translatable="false"><![CDATA[<b>%1$s</b><br/>is <b>lost</b>!]]></string>
+    <string name="fw_warn" translatable="false"><![CDATA[Your BLE-B&#39;s firmware version is obsolete and we recommend to update it: <a href="https://www.bleb.it/en/gallery/#3">here&#39;s a tutorial</a>!]]></string>
+    <string name="gateway_topic" translatable="false"><![CDATA[gw_makeapp/<smartphone-address>/<bleb-address>/data]]></string>
+    <string name="device_rilevati" translatable="false">Device rilevati</string>
+
+    <string name="network_error" translatable="false">Si è verificato un problema di connessione. Riprovare più tardi</string>
+    <string name="warning_title" translatable="false">Attenzione!</string>
+    <string name="text_notification" translatable="false">DPI non indossato correttamente:</string>
+    <string name="text_notification_big" translatable="false">DPI non indossato correttamente. Clicca qui per ulteriori dettagli</string>
+    <string name="text_notification_nosignal" translatable="false"> non invia segnali, verificare.</string>
+
+    <string name="app_name" translatable="false">DPI</string>
+    <string name="text_caricamento" translatable="false">Monitoraggio dispositivi in corso…</string>
+    <string name="text_helmet" translatable="false">Casco</string>
+    <string name="text_silouhette" translatable="false">Silouhette</string>
+    <string name="text_earmuffs" translatable="false">Cuffie</string>
+    <string name="text_harness" translatable="false">Imbracatura</string>
+    <string name="text_leftGlove" translatable="false">Guanto SX</string>
+    <string name="text_rightGlove" translatable="false">Guanto DX</string>
+    <string name="text_rightShoe" translatable="false">Scarpa DX</string>
+    <string name="text_leftShoe" translatable="false">Scarpa SX</string>
+    <string name="text_jacket" translatable="false">Giacca</string>
+    <string name="text_trousers" translatable="false">Pantaloni</string>
+    <string name="dpi_app" translatable="false">DPI APP</string>
+    <string name="conferma_title" translatable="false">Conferma</string>
+
+    <string name="text_password" translatable="false">Password</string>
+    <string name="text_username" translatable="false">Username</string>
+    <string name="text_username_obbligatorio" translatable="false">Username obbligatorio</string>
+    <string name="text_password_obbligatoria" translatable="false">Password obbligatoria</string>
+    <string name="text_dati_non_corretti" translatable="false">I dati inseriti non sono corretti</string>
+    <string name="text_beacon_inattivi" translatable="false">I dispositivi verrano monitorati dopo aver iniziato un\'attività</string>
+    <string name="text_emergenza_uat_title" translatable="false">EMERGENZA: uomo a terra</string>
+    <string name="text_emergenza_uat_title_ok" translatable="false">Emergenza \'uomo a terra\' rientrata</string>
+    <string name="text_emergenza_uat_sms_OK" translatable="false">E\' stata rilevata una situazione di pericolo.\n\nUn SMS è stato inviato al tuo supervisore.\n\nContinuando, confermi di non essere in pericolo e di avere la situazione sotto controllo.\nAltrimenti, attendi i soccorsi e clicca "Annulla".</string>
+    <string name="text_emergenza_uat_sms_KO" translatable="false">E\' stata rilevata una situazione di pericolo.\n\nUn SMS verrà inviato al tuo supervisore non appena tornerà la copertura di rete.\n\nContinuando, confermi di non essere in pericolo e di avere la situazione sotto controllo.\nAltrimenti, attendi i soccorsi e clicca "Annulla".</string>
+    <string name="text_no_task" translatable="false">Nessuna attività</string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="inizio_attivita_title" translatable="false">Inizia attività</string>
+    <string name="text_conferma_inizio_attività" translatable="false">Vuoi iniziare l\'attività?</string>
+    <string name="operatore_matricola" translatable="false">Operatore:</string>
+    <string name="operatore" translatable="false">operatore</string>
+    <string name="attivita_iniziata_title" translatable="false">Attività iniziata</string>
+    <string name="error_service" translatable="false">Si è verificato un errore</string>
+    <string name="fine_intervento_OK" translatable="false">Attività conclusa con successo</string>
+    <string name="sincronizzazione_effettuata" translatable="false">Sincronizzazione dati conclusa con successo</string>
+    <string name="logout_title" translatable="false">Conferma logout</string>
+    <string name="text_conferma_logout" translatable="false">Confermi il logout?</string>
+    <string name="text_conferma_termine_attivita" translatable="false">Vuoi terminare l\'attività?</string>
+    <string name="annulla" translatable="false">Annulla</string>
+    <string name="no" translatable="false">No</string>
+    <string name="si" translatable="false">Sì</string>
+    <string name="ok" translatable="false" tools:ignore="ButtonCase">Ok</string>
+    <string name="attivita_in_corso_title" translatable="false">Attività in corso</string>
+    <string name="text_attivita_in_corso" translatable="false">Per iniziare una nuova attività bisogna terminare l\'attività in corso</string>
+    <string name="label_helmet" translatable="false">Casco</string>
+    <string name="label_jacket" translatable="false">Giacca</string>
+    <string name="label_trousers" translatable="false">Pantaloni</string>
+    <string name="label_left_shoe" translatable="false">Stivale SX</string>
+    <string name="label_right_shoe" translatable="false">Stivale DX</string>
+    <string name="label_left_glove" translatable="false">Guanto SX</string>
+    <string name="label_right_glove" translatable="false">Guanto DX</string>
+    <string name="label_goggles" translatable="false">Occhiali</string>
+    <string name="label_badge" translatable="false">Badge</string>
+    <string name="label_harness" translatable="false">Imbracatura</string>
+    <string name="label_ear_muffs" translatable="false">Cuffie</string>
+    <string name="logout_warning" translatable="false">Terminare l\'attività prima di effettuare il logout</string>
+    <string name="continua" translatable="false">Continua</string>
+    <string name="text_recupera_psw_underline" translatable="false"><u>Recupera Password</u></string>
+    <string name="text_cambio_psw_underline" translatable="false"><u>Cambio Password</u></string>
+    <string name="text_cambio_psw" translatable="false">Cambio Password</string>
+    <string name="text_recupera_psw" translatable="false">Recupera Password</string>
+    <string name="text_old_psw" translatable="false">Vecchia Password</string>
+    <string name="text_new_psw" translatable="false">Nuova Password</string>
+    <string name="text_confirm_psw" translatable="false">Conferma Password</string>
+    <string name="text_required" translatable="false">Campo obbligatorio</string>
+    <string name="text_email" translatable="false">Email</string>
+    <string name="txt_emai_recovery_ok" translatable="false">E\' stata inviata una mail con la password all\'.indirizzo inserito.</string>
+    <string name="txt_change_psw_ok" translatable="false">Password cambiata con successo. Rieffettuare l\'accesso.</string>
+    <string name="uomo_a_terra" translatable="false">Uomo a terra</string>
+
+    <string name="kit_error" translatable="false">Non risultano kit associati a tutti i settori, contattare l\'amministratore di commessa.</string>
+    <string name="sms_failed" translatable="false">Invio Sms fallito!</string>
+    <string name="sms_send" translatable="false">Sms inviato correttamente a: </string>
+    <string name="preferences" translatable="false">preferences</string>
+    <!--NON RIMUOVERE le stringhe vengono utilizzate per recuperare la imageView-->
+    <string name="img_helmet" translatable="false">imgHelmet</string>
+    <string name="img_harness" translatable="false">imgHarness</string>
+    <string name="img_earmuffs" translatable="false">imgEarMuffs</string>
+    <string name="img_leftglove" translatable="false">imgLeftGlove</string>
+    <string name="img_rightglove" translatable="false">imgRightGlove</string>
+    <string name="img_rightshoe" translatable="false">imgRightShoe</string>
+    <string name="img_leftshoe" translatable="false">imgLeftShoe</string>
+    <string name="img_jacket" translatable="false">imgJacket</string>
+    <string name="img_trousers" translatable="false">imgTrousers</string>
+    <string name="txt_attendere" translatable="false">Attendere…</string>
+    <string name="nessun_dpi_caricato" translatable="false">Nessun DPI caricato</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="info_dpi" translatable="false">Info DPI</string>
+    <string name="attivita" translatable="false">Attività</string>
+    <string name="in_attesa" translatable="false">in attesa di dati...</string>
+</resources>

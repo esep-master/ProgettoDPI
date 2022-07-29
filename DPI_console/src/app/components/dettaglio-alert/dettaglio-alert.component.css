@@ -1,0 +1,39 @@
+.alarm-detail-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.alarm-detail-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.alarm-detail-block.separator {
+  border-right: 1px solid #dee2e6;
+}
+
+.alarm-detail-block.right {
+  padding-left: 16px;
+}
+
+.alarm-detail-col {
+  white-space: nowrap;
+}
+
+.alarm-detail-col.left {
+  font-weight: bold;
+}
+
+.alarm-detail-col.right {
+  margin-left: 24px;
+}
+
+.alarm-detail-field {
+  height: 28px;
+}
+
+.alarm-detail-col.left .alarm-detail-field i {
+  margin-right: 4px;
+}

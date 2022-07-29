@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+}
+
+.change-password {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.btns-operazioni {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

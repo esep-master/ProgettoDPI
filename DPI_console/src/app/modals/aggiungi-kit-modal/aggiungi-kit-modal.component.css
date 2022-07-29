@@ -1,0 +1,182 @@
+.kit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kit-dropdowns {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.kit-dropdown {
+  margin-right: 8px;
+}
+
+.add-kit-container {
+  /* margin-top: 16px; */
+  display: flex;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-bottom: 16px;
+  /* justify-content: space-between; */
+}
+
+.kit-form {
+  display: flex;
+  /* margin-top: 16px; */
+}
+
+.kit-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.kit-form-field {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  height: 50px;
+}
+
+.kit-selection {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #dee2e6;
+}
+
+.kit-selection-label {
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.kit-selection-calendar {
+  display: flex;
+  height: 46px;
+  /* width: 46px; */
+}
+
+.kit-selection-col {
+  margin-right: 8px;
+}
+
+.kit-form-field input {
+  width: 100%;
+}
+
+.w-50 {
+  /* width: 50%; */
+  width: auto;
+}
+
+.salva-btn {
+  margin-top: 16px;
+  margin-right: 24px;
+  text-align: right;
+}
+
+.img-size {
+  height: 64px;
+}
+
+.nome-kit {
+  margin-left: 16px;
+  margin-top: 32px;
+}
+
+.elenco-dpi {
+  margin-left: 16px;
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.img-dpi-necessari {
+  height: 42px;
+  /* margin-right: 16px; */
+  padding: 2px;
+}
+
+.img-active {
+  border: 3px solid rgb(126, 191, 28);
+  border-radius: 5px;
+}
+
+.img-disactive {
+  border: 3px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  opacity: 40%;
+}
+
+.img-table-size{
+  height: 32px;
+}
+
+.v-align-center{
+  display: flex;
+  align-items: center;
+}
+
+.separator-wrapper {
+  padding-top: 8px;
+}
+
+
+.grid{
+  display: grid;
+}
+
+.change-password{
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.mt-16{
+  margin-top: 16px;
+} 
+.mb-16{
+  margin-bottom: 16px;
+}
+
+
+/*******/
+
+.kit-dpi-selection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #dee2e6;
+}
+
+.kit-dpi-selection-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kit-dpi-selection-col {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.kit-dpi-selection-row-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.kit-dpi-selection-col-title {
+  padding-left: 6px;
+}

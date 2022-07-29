@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 04/03/2019 22:07
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="@color/colorGray"
+        />
+    <corners android:radius="1000dp" />
+</shape>

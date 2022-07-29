@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/custom_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dpi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_helmet"
+        android:textSize="@dimen/title_info_dpi_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dpi_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/info_dpi_text_size"
+        android:textStyle="italic"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dpi_battery_lvl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dpi_name" />
+
+    <ImageView
+        android:id="@+id/dpi_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_battery_86_100"
+        app:layout_constraintBottom_toBottomOf="@+id/dpi_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dpi_name" />
+
+    <TextView
+        android:id="@+id/dpi_battery_lvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dpi_battery"
+        android:text="100%"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/dpi_id"
+        app:layout_constraintLeft_toLeftOf="@+id/dpi_battery"
+        app:layout_constraintRight_toRightOf="@+id/dpi_battery"
+        app:layout_constraintTop_toTopOf="@+id/dpi_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

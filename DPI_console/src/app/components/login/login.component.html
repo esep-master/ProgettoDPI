@@ -1,0 +1,35 @@
+<div class="center-content-flexItems middle-page">
+    <p-panel header="Login">
+        <form [formGroup]="credentialFormGroup">
+            <!-- USERNAME -->
+            <div>
+                <label for="username">
+                    Username
+                </label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input pInputText type="text" class="form-control" id="username" formControlName="username">
+                </div>
+            </div>
+            <!-- PASSWORD -->
+            <div class="pt-8">
+                <label for="password">
+                    Password
+                </label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <p-password class="form-control" (keypress)="onKeyPress($event)" id="password" formControlName="password" [feedback]="false"
+                        [toggleMask]="true">
+                    </p-password>
+                </div>
+            </div>
+        </form>
+        <div class="login-btn">
+            <button pButton pRipple icon="pi pi-sign-in" (click)="onLogIn()" type="button" label="Log-in" [disabled]="!credentialFormGroup.valid"
+                class="p-button-rounded"></button>
+        </div>
+    </p-panel>
+</div>
+
+<app-loading [isWaiting]="isWaitingLogInService"></app-loading>
+<p-toast></p-toast>

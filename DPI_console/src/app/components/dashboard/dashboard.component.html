@@ -1,0 +1,149 @@
+<div class="dashboard">
+    <div class="grid">
+        <div class="col-12 md:col-4 lg:col-3">
+            <div class="dashcard fixed-height-card">
+                <p-card>
+                    <ng-template pTemplate="header">
+                        <div class="dashcard-header">
+                            <div>{{'DASHBOARD_CMP.HEADER_COMMESSE' | translate}}</div>
+                            <div><i class="pi pi-book" style="font-size: 1.5rem"></i></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="content">
+                        <div class="center" *ngIf="loading">
+                            <p-progressSpinner></p-progressSpinner>
+                        </div>
+                        <div *ngIf="!loading" class="dashcard-content">
+                            <div>
+                                {{'DASHBOARD_CMP.COMMESSE_ATTIVE' | translate}}: <strong>{{ dashdata.numeroCommesseAttive }}</strong>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div *ngIf="!loading" class="dashcard-footer">
+                            <button (click)="goTo('home')" pButton type="button" label="{{'DASHBOARD_CMP.LINK_COMMESSE' | translate}}" icon="pi pi-arrow-right" iconPos="right" class="p-button-text"></button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+        <div class="col-12 md:col-4 lg:col-3">
+            <div class="dashcard fixed-height-card">
+                <p-card>
+                    <ng-template pTemplate="header">
+                        <div class="dashcard-header">
+                            <div>{{'DASHBOARD_CMP.HEADER_NON_ASSOCIATI' | translate}}</div>
+                            <div><i class="pi pi-link" style="font-size: 1.5rem"></i></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="content">
+                        <div class="center" *ngIf="loading">
+                            <p-progressSpinner></p-progressSpinner>
+                        </div>
+                        <div *ngIf="!loading" class="dashcard-content">
+                            <div>{{'DASHBOARD_CMP.KIT_NON_ASSOCIATI' | translate}}: <strong>{{ dashdata.numeroKitNonAssociati }}</strong></div>
+                            <div>{{'DASHBOARD_CMP.DPI_NON_ASSOCIATI' | translate}}: <strong>{{ dashdata.numeroDPINonAssociati }}</strong></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div *ngIf="!loading" class="dashcard-footer">
+                            <button (click)="goTo('report')" pButton type="button" label="{{'DASHBOARD_CMP.LINK_REPORT' | translate}}" icon="pi pi-arrow-right" iconPos="right" class="p-button-text"></button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+        <div class="col-12 md:col-4 lg:col-3">
+            <div class="dashcard fixed-height-card">
+                <p-card>
+                    <ng-template pTemplate="header">
+                        <div class="dashcard-header">
+                            <div>{{'DASHBOARD_CMP.HEADER_KIT_CONTATORI' | translate}}</div>
+                            <div><i class="pi pi-chart-bar" style="font-size: 1.5rem"></i></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="content">
+                        <div class="center" *ngIf="loading">
+                            <p-progressSpinner></p-progressSpinner>
+                        </div>
+                        <div *ngIf="!loading" class="dashcard-content">
+                            <div *ngFor="let kitSettore of dashdata.kitSettore">
+                                {{ kitSettore.settore.nome }}: <strong>{{ kitSettore.numeroKit }}</strong>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div *ngIf="!loading" class="dashcard-footer">
+                            <button (click)="goTo('dpi/kit')" pButton type="button" label="{{'DASHBOARD_CMP.LINK_KIT' | translate}}" icon="pi pi-arrow-right" iconPos="right" class="p-button-text"></button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+        <div class="col-12 md:col-4 lg:col-3">
+            <div class="dashcard fixed-height-card">
+                <p-card>
+                    <ng-template pTemplate="header">
+                        <div class="dashcard-header">
+                            <div>{{'DASHBOARD_CMP.HEADER_KIT_STATI' | translate}}</div>
+                            <div><i class="pi pi-sitemap" style="font-size: 1.5rem"></i></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="content">
+                        <div class="center" *ngIf="loading">
+                            <p-progressSpinner></p-progressSpinner>
+                        </div>
+                        <div *ngIf="!loading" class="dashcard-content">
+                            <div>{{'DASHBOARD_CMP.KIT_UN_ALLARME' | translate}}: <strong>{{ dashdata.statiKit.singleDPI }}</strong></div>
+                            <div>{{'DASHBOARD_CMP.KIT_PIU_ALLARMI' | translate}}: <strong>{{ dashdata.statiKit.multiDPI }}</strong></div>
+                            <div>{{'DASHBOARD_CMP.KIT_DISATTIVATI' | translate}}: <strong>{{ dashdata.statiKit.disattivati }}</strong></div>
+                            <div>{{'DASHBOARD_CMP.KIT_OK' | translate}}: <strong>{{ dashdata.statiKit.ok }}</strong></div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div *ngIf="!loading" class="dashcard-footer">
+                            <button (click)="goTo('alert/lista')" pButton type="button" label="{{'DASHBOARD_CMP.LINK_ALLARMI' | translate}}" icon="pi pi-arrow-right" iconPos="right" class="p-button-text"></button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <p-dataView [value]="infoList" layout="grid">
+    <ng-template pTemplate="header">
+        <div class="align-right">
+            <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+    </ng-template>
+    <ng-template let-info pTemplate="listItem">
+        <div>
+            <div>
+                {{info.label}}
+            </div>
+            <div>
+                {{info.num}}
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-info pTemplate="gridItem">
+        <div class="inline-block">
+            <div class="flex-spaceBTW">
+                <div> 
+                    {{info.label}}
+                </div>
+                <div>
+                    {{info.num}}
+                </div>
+            </div>
+            <div *ngIf="info.icona" class="center">
+                <img [smartIcon]="info.icona"
+                    class="img-size" />
+            </div>
+            <div class="infobtn">
+                <button pButton pRipple icon="pi pi-arrow-circle-right" class="p-button-rounded" (click)="goTo(info)"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView> -->

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 27/02/2019 16:26
+  -->
+
+<resources>
+    <style name="Permissions.TransparentTheme" parent="android:Theme.Light" />
+</resources>

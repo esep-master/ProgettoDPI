@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2019. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 28/05/2019 17:07
+  -->
+
+<resources>
+    <string-array name="txPower">
+        <item>-40</item>
+        <item>-20</item>
+        <item>-16</item>
+        <item>-12</item>
+        <item>-8</item>
+        <item>-4</item>
+        <item>0</item>
+        <item>+3</item>
+        <item>+4</item>
+        <item>+8</item>
+    </string-array>
+
+    <string-array name="scanWindow">
+        <item>Scan Off</item>
+        <item>Narrow</item>
+        <item>Medium</item>
+        <item>Wide</item>
+        <item>Continuous</item>
+    </string-array>
+
+    <string-array name="gpioMode">
+        <item>Not Used</item>
+        <item>Input</item>
+        <item>Output</item>
+        <item>Pulses Counter</item>
+        <item>RPS</item>
+    </string-array>
+
+    <string-array name="gpioModeAnalog">
+        <item>Not Used</item>
+        <item>Input</item>
+        <item>Output</item>
+        <item>Pulses Counter</item>
+        <item>Analog Input</item>
+        <item>RPS</item>
+    </string-array>
+
+    <string-array name="gpioLowHigh">
+        <item>Low Status</item>
+        <item>High Status</item>
+    </string-array>
+
+    <string-array name="uvaSensitivity">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Very High</item>
+    </string-array>
+
+    <string-array name="prtModes">
+        <item>Low Power</item>
+        <item>Standard</item>
+        <item>High Resolution</item>
+    </string-array>
+
+    <string-array name="prtFilter">
+        <item>Off</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="imuSensitivities">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="capMode">
+        <item>Normal</item>
+        <item>Latched</item>
+        <item>WET</item>
+    </string-array>
+
+    <string-array name="capLedColor">
+        <item>None</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+        <item>Purple</item>
+        <item>White</item>
+    </string-array>
+
+    <string-array name="capGain">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>Default</item>
+    </string-array>
+
+    <string-array name="smsMode">
+        <item>Resistance</item>
+        <item>Mutual capacitance</item>
+        <item>Self capacitance</item>
+    </string-array>
+
+    <string-array name="smsGain">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>Default</item>
+    </string-array>
+
+    <string-array name="smsCalibration">
+        <item>Offset</item>
+        <item>Full scale</item>
+    </string-array>
+
+    <string-array name="pdmDistance">
+        <item>Long Distance</item>
+        <item>Medium Distance</item>
+        <item>Short Distance</item>
+        <item>Crossings Counter</item>
+    </string-array>
+
+    <string-array name="imuMode">
+        <item>Accelerometer</item>
+        <item>Magnetometer</item>
+        <item>Gyroscope</item>
+    </string-array>
+
+    <string-array name="diGpioId">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="diAdvertisingActivity">
+        <item>Slow</item>
+        <item>Regular</item>
+        <item>Fast</item>
+    </string-array>
+
+    <string-array name="diRelChannel">
+        <item>Relay</item>
+        <item>OUT1</item>
+        <item>OUT2</item>
+        <item>Relay (Toggling)</item>
+        <item>OUT1 (Toggling)</item>
+        <item>OUT2 (Toggling)</item>
+    </string-array>
+
+    <string-array name="diRelStatus">
+        <item>Open Circuit</item>
+        <item>Closed Circuit</item>
+    </string-array>
+
+    <string-array name="diSteadyColor">
+        <item>Off</item>
+        <item>White</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+    </string-array>
+
+    <string-array name="diVbrAction">
+        <item>Continuous Vibration</item>
+        <item>Two Short Vibrations</item>
+        <item>One Long Vibration</item>
+    </string-array>
+
+    <string-array name="diBuzAction">
+        <item>Continuous Sound</item>
+        <item>Two Short Beep</item>
+        <item>One Long Beep</item>
+    </string-array>
+
+    <string-array name="diBuzLed">
+        <item>Red LED</item>
+        <item>Green LED</item>
+        <item>No LED</item>
+    </string-array>
+
+    <string-array name="diGpsAction">
+        <item>Off Mode</item>
+        <item>Full On Mode</item>
+        <item>Periodic Mode</item>
+        <item>Always Locale</item>
+    </string-array>
+
+    <string-array name="diSetPowerModeAction">
+        <item>Demo Mode</item>
+        <item>Low Power Mode</item>
+    </string-array>
+
+    <string-array name="diWplAction">
+        <item>Off</item>
+        <item>On</item>
+        <item>One Short Blink</item>
+        <item>Two Short Blink</item>
+        <item>One Long Blink</item>
+        <item>Two Long Blink</item>
+    </string-array>
+
+    <string-array name="ctraceDetectionInterval">
+        <item>Fast</item>
+        <item>Low Power</item>
+        <item>Custom</item>
+    </string-array>
+
+    <string-array name="ctraceWearingMode">
+        <item>Badge Mode</item>
+        <item>Wristband Mode</item>
+    </string-array>
+
+    <string-array name="wifiProtection">
+        <item>WPA/WPA2</item>
+        <item>WEP</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="accSensitivity">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="vidVideoQuality">
+        <item>Poor</item>
+        <item>Regular</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="cltModes">
+        <item>Surfaces</item>
+        <item>Human Body</item>
+    </string-array>
+
+    <string-array name="adxStatistics">
+        <item>OFF</item>
+        <item>Mean value</item>
+        <item>Standard deviation</item>
+        <item>Peak value</item>
+        <item>Peak to peak value</item>
+        <item>Crest factor</item>
+        <item>Kurtosis</item>
+        <item>Skewness</item>
+    </string-array>
+
+    <string-array name="adxSensing">
+        <item>Acceleration</item>
+        <item>Velocity</item>
+    </string-array>
+
+    <string-array name="adxRSS">
+        <item>OFF</item>
+        <item>ON</item>
+    </string-array>
+
+    <string-array name="shuntFullScaleRange">
+        <item>±40</item>
+        <item>±80</item>
+        <item>±160</item>
+        <item>±320</item>
+    </string-array>
+
+    <string-array name="inputVoltageRange">
+        <item>16V</item>
+        <item>32V</item>
+    </string-array>
+
+    <string-array name="cmsShuntResistanceMu">
+        <item>mΩ</item>
+        <item>Ω</item>
+    </string-array>
+
+    <string-array name="cmsCurrentUnit">
+        <item>1 µA</item>
+        <item>10 µA</item>
+        <item>100 µA</item>
+        <item>1000 µA</item>
+    </string-array>
+
+    <string-array name="inputSelectLogin">
+        <item>Seleziona una mansione</item>
+        <item>Acqua</item>
+        <item>Gas</item>
+        <item>Luce</item>
+    </string-array>
+</resources>

@@ -1,0 +1,127 @@
+./DPI_db/
+.metadata
+.DS_Store
+
+
+#DPI_API --------------------------------
+./DPI_api/.gitignore
+./DPI_api/HELP.md
+./DPI_api/target/
+
+### STS ###
+./DPI_api/.apt_generated
+./DPI_api/.classpath
+./DPI_api/.factorypath
+./DPI_api/.project
+./DPI_api/.settings
+./DPI_api/.springBeans
+./DPI_api/.sts4-cache
+
+### IntelliJ IDEA ###
+./DPI_api/.idea
+./DPI_api/*.iws
+./DPI_api/*.iml
+./DPI_api/*.ipr
+
+### NetBeans ###
+./DPI_api/nbproject/private/
+./DPI_api/nbbuild/
+./DPI_api/dist/
+./DPI_api/nbdist/
+./DPI_api/.nb-gradle/
+./DPI_api/build/
+./DPI_api/!**/src/main/**/build/
+./DPI_api/!**/src/test/**/build/
+
+### VS Code ###
+./DPI_api/.vscode/
+
+#END DPI_API ----------------------
+
+
+
+#DPI_APP --------------------------
+
+./DPI_app/.svn/
+./DPI_app/AppSveltoDroid/
+./DPI_app/Heratech/
+
+./DPI_app/DPI/.gitignore
+./DPI_app/DPI/*.iml
+./DPI_app/DPI/.gradle
+./DPI_app/DPI/local.properties
+./DPI_app/DPI/.idea/caches
+./DPI_app/DPI/.idea/libraries
+./DPI_app/DPI/.idea/modules.xml
+./DPI_app/DPI/.idea/workspace.xml
+./DPI_app/DPI/.idea/navEditor.xml
+./DPI_app/DPI/.idea/assetWizardSettings.xml
+./DPI_app/DPI/.DS_Store
+./DPI_app/DPI/build
+./DPI_app/DPI/captures
+./DPI_app/DPI/.externalNativeBuild
+./DPI_app/DPI/.cxx
+./DPI_app/DPI/local.properties
+
+#FINE DPI_APP -----------------------
+
+#DPI_CONSOLE --------------------------
+
+./DPI_console/.gitignore
+./DPI_console/.svn
+
+# compiled output
+./DPI_console/dist
+./DPI_console/tmp
+./DPI_console/out-tsc
+# Only exists if Bazel was run
+./DPI_console/bazel-out
+
+# dependencies
+./DPI_console/node_modules
+
+# profiling files
+./DPI_console/chrome-profiler-events*.json
+
+# IDEs and editors
+./DPI_console/.idea
+./DPI_console/.project
+./DPI_console/.classpath
+./DPI_console/.c9/
+./DPI_console/*.launch
+./DPI_console/.settings/
+./DPI_console/*.sublime-workspace
+
+# IDE - VSCode
+./DPI_console/.vscode/*
+./DPI_console/!.vscode/settings.json
+./DPI_console/!.vscode/tasks.json
+./DPI_console/!.vscode/launch.json
+./DPI_console/!.vscode/extensions.json
+./DPI_console/.history/*
+
+# misc
+./DPI_console/.sass-cache
+./DPI_console/connect.lock
+./DPI_console/coverage
+./DPI_console/libpeerconnection.log
+./DPI_console/npm-debug.log
+./DPI_console/yarn-error.log
+./DPI_console/testem.log
+./DPI_console/typings
+
+# System Files
+./DPI_console/.DS_Store
+./DPI_console/Thumbs.db
+
+#FINE DPI_CONSOLE --------------------
+
+
+
+
+
+
+
+
+
+

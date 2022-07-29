@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2020. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 29/05/2019 10:56
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dicommand_ifttt_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dicommand_ifttt_preset_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <it.bleb.dpi.utils.CustomSpinner
+            android:id="@+id/dicommand_ifttt_preset"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:textSize="@dimen/font_size"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/dicommand_ifttt_preset_delete"
+            app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_preset_desc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dicommand_ifttt_preset_desc"
+            android:layout_width="@dimen/di_left_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Preset:"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/font_size"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_preset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_preset" />
+
+        <ImageView
+            android:id="@+id/dicommand_ifttt_preset_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_preset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_preset"
+            app:srcCompat="@drawable/ic_btn_trash" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <EditText
+        android:id="@+id/dicommand_ifttt_key"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="@dimen/font_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_key_desc"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_ifttt_preset_container" />
+
+    <TextView
+        android:id="@+id/dicommand_ifttt_key_desc"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Key:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_key"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_key" />
+
+    <EditText
+        android:id="@+id/dicommand_ifttt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minHeight="42dp"
+        android:singleLine="false"
+        android:textSize="@dimen/font_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_name_desc"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_ifttt_key" />
+
+    <TextView
+        android:id="@+id/dicommand_ifttt_name_desc"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Event name:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_name" />
+
+    <EditText
+        android:id="@+id/dicommand_ifttt_value1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minHeight="42dp"
+        android:singleLine="false"
+        android:textSize="@dimen/font_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_value1_desc"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_ifttt_name" />
+
+    <TextView
+        android:id="@+id/dicommand_ifttt_value1_desc"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Value 1:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_value1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_value1" />
+
+    <EditText
+        android:id="@+id/dicommand_ifttt_value2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minHeight="42dp"
+        android:singleLine="false"
+        android:textSize="@dimen/font_size"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_value2_desc"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_ifttt_value1" />
+
+    <TextView
+        android:id="@+id/dicommand_ifttt_value2_desc"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Value 2:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_value2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_value2" />
+
+    <EditText
+        android:id="@+id/dicommand_ifttt_value3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:ellipsize="end"
+        android:textSize="@dimen/font_size"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_ifttt_value3_desc"
+        app:layout_constraintTop_toBottomOf="@+id/dicommand_ifttt_value2" />
+
+    <TextView
+        android:id="@+id/dicommand_ifttt_value3_desc"
+        android:layout_width="@dimen/di_left_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Value 3:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_ifttt_value3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_ifttt_value3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

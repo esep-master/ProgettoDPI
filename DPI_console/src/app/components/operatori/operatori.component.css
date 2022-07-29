@@ -1,0 +1,18 @@
+.grid {
+  display: grid;
+}
+
+.change-password {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.word-break {
+  word-break: break-all;
+}
+
+.btns-operazioni {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

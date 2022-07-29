@@ -1,0 +1,32 @@
+a {
+  color: black;
+}
+
+.v-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.img-size {
+  height: 32px;
+  margin-right: 16px;
+}
+
+.btns-operazioni{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.col-large {
+  width: 260px;
+  min-width: 260px;
+}
+
+/* Modifiche grafica */
+@media screen and (max-width: 900px) {
+  .col-large {
+    width: unset;
+    min-width: unset;
+  }
+}

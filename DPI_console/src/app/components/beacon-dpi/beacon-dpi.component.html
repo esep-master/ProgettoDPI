@@ -1,0 +1,151 @@
+<p-table [value]="dpiList" #dt4 [paginator]="true" [rows]="10" [loading]="loading" styleClass="p-datatable-gridlines"
+    [globalFilterFields]="['codice','beacon.seriale','tipoDPI.nome','marca','modello']">
+    <ng-template pTemplate="caption">
+        <div class="space-between-flexItems">
+            <div>
+                <span class="p-input-icon-left p-ml-auto mr-8">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt4.filterGlobal($event.target.value, 'contains')"
+                        placeholder="{{'BEACON_DPI_CMP.CERCA' | translate}}" />
+                </span>
+                <!-- <button pButton label="{{'BEACON_DPI_CMP.PULISCI' | translate}}" class="p-button-outlined"
+                    icon="pi pi-filter-slash" (click)="clear(dt4)"></button> -->
+            </div>
+            <div>
+                <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel(dt4)" label="Esporta"
+                    class="p-button-success mr-8" pTooltip="XLS" tooltipPosition="bottom"></button>
+                <button pButton label="{{'BEACON_DPI_CMP.AGGIUNGI' | translate}}" class="p-button-success"
+                    icon="pi pi-plus" (click)="onCreaDpi()"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="tipoDPI.id">{{'BEACON_DPI_CMP.TIPO' | translate}}<p-sortIcon field="tipoDPI.id">
+                </p-sortIcon>
+                <!-- tipo dpi -->
+                <p-columnFilter field="tipoDPI.id" matchMode="in" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Seleziona tipo DPI</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-multiSelect [(ngModel)]="selectedTipiDpi" [options]="tipiDpi"
+                            (onChange)="filter($event.value)" optionLabel="nome" optionValue="id">
+                        </p-multiSelect>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="codice">{{'BEACON_DPI_CMP.CODICE_DPI' | translate}}<p-sortIcon field="codice">
+                </p-sortIcon>
+                <p-columnFilter field="codice" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Codice</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th>{{'BEACON_DPI_CMP.MARCA_MODELLO' | translate}}
+                <p-columnFilter field="marcaModello" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Marca e modello</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="settoriDPI">{{'BEACON_DPI_CMP.SETTORI' | translate}}<p-sortIcon field="settoriDPI">
+                </p-sortIcon>
+                <p-columnFilter field="idSettori" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span>Selezione Settore</span>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-multiSelect [(ngModel)]="selectedSettori" [options]="settoriList"
+                            (onChange)="filtroPerSettori($event.value)" optionLabel="nome" optionValue="id">
+                        </p-multiSelect>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <!-- <th>{{'BEACON_DPI_CMP.NOTE' | translate}}
+            </th> -->
+            <th pSortableColumn="beacon.seriale">{{'BEACON_DPI_CMP.SERIALE_BEACON' | translate}} <p-sortIcon
+                    field="beacon.seriale">
+                </p-sortIcon>
+                <p-columnFilter field="beacon.seriale" matchMode="contains" display="menu" [showMatchModes]="false"
+                    [showOperator]="false" [showAddButton]="false">
+                    <ng-template pTemplate="header">
+                        <div class="margin-top-left-bold">
+                            <span class="p-text-bold">Seriale del beacon</span>
+                        </div>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th pSortableColumn="dataScadenza">{{'BEACON_DPI_CMP.SCADENZA' | translate}} <p-sortIcon
+                    field="dataScadenza">
+                </p-sortIcon>
+            </th>
+            <th pSortableColumn="beacon.livelloBatteria">{{'BEACON_DPI_CMP.LVL_BATTERIA' | translate}} <p-sortIcon
+                    field="beacon.livelloBatteria">
+                </p-sortIcon>
+            </th>
+            <th>Operazioni
+            </th>
+            <!-- <th>{{'BEACON_DPI_CMP.ELIMINA' | translate}}
+            </th> -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dpi>
+        <tr>
+            <td class="break-word">
+                <div class="v-align-center">
+                    <img class="img-size" [smartIcon]="dpi.tipoDPI.nomeIcona" alt="">{{dpi.tipoDPI.nome}}
+                </div>
+            </td>
+            <td class="break-word">{{dpi.codice}}</td>
+            <td class="break-word">{{!dpi.marca && !dpi.modello ? '-' : dpi.marca ? dpi.marca+',':''}} {{dpi.modello}}
+            </td>
+            <td>{{getElencoSettori(dpi)}}</td>
+            <!-- <td>{{dpi.note}}</td> -->
+            <td class="break-word">{{dpi.beacon.seriale}}</td>
+            <td>{{dpi.scadenzaCalcolata | daysToYears}}</td>
+            <td>
+                <img class="img-size" [smartIcon]="dpi.iconaBatt" alt="">
+                <!-- {{dpi.batteria}} -->
+            </td>
+            <td>
+                <div class="btns-operazioni">
+                    <button pButton class="p-button-outlined p-button mr-8" icon="pi pi-pencil"
+                        (click)="onUpdateDpi(dpi)"></button>
+                    <button pButton class="p-button-outlined p-button-danger" icon="pi pi-times"
+                        (click)="onDeleteDpi(dpi)"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<p-dialog header="{{ 'BEACON_DPI_CMP.DELETE_HEADER' | translate}}" [modal]="true" [(visible)]="display">
+    <div class="grid" *ngIf="display">
+        <label class="label-delete" for="password">
+            {{'BEACON_DPI_CMP.DELETE_LABEL' | translate}}
+        </label>
+        <p-radioButton class="multiselect-delete" name="eliminationeDPI" value=1 label="Solo DPI"
+            [(ngModel)]="tipoEliminazione"></p-radioButton>
+        <p-radioButton class="multiselect-delete" name="eliminationeDPI" value=2 label="DPI e Beacon"
+            [(ngModel)]="tipoEliminazione"></p-radioButton>
+        <div class="delete-btn">
+            <button pButton class="p-button" label="{{'BEACON_DPI_CMP.CONFIRM' | translate}}" (click)="onConfirm()">
+            </button>
+        </div>
+    </div>
+</p-dialog>

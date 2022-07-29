@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "nome": "Commessa1",
+            "descrizione": "descrizione1",
+            "elencoSedi": [
+                { "sede":"Sede1", "id":1 },
+                { "sede":"Sede2", "id":2 },
+                { "sede":"Sede3", "id":3 }
+            ],
+            "elencoAddetti": [
+                { "nome":"Operatore1", "id":1 },
+                { "nome":"Operatore2", "id":2 },
+                { "nome":"Operatore3", "id":3 }
+            ]
+        },
+        {
+            "id": 2,
+            "nome": "Commessa2",
+            "descrizione": "descrizione2",
+            "elencoSedi": [
+                { "sede":"Sede1", "id":1 },
+                { "sede":"Sede2", "id":2 },
+                { "sede":"Sede3", "id":3 }
+            ],
+            "elencoAddetti": [
+                { "nome":"Operatore1", "id":1 },
+                { "nome":"Operatore2", "id":2 },
+                { "nome":"Operatore3", "id":3 }
+            ]
+        },
+        {
+            "id": 3,
+            "nome": "Commessa3",
+            "descrizione": "descrizione3",
+            "elencoSedi": [
+                { "sede":"Sede1", "id":1 },
+                { "sede":"Sede2", "id":2 },
+                { "sede":"Sede3", "id":3 }
+            ],
+            "elencoAddetti": [
+                { "nome":"Operatore1", "id":1 },
+                { "nome":"Operatore2", "id":2 },
+                { "nome":"Operatore3", "id":3 }
+            ]
+        },
+        {
+            "id": 4,
+            "nome": "Commessa4",
+            "descrizione": "descrizione4",
+            "elencoSedi": [
+                { "sede":"Sede1", "id":1 },
+                { "sede":"Sede2", "id":2 },
+                { "sede":"Sede3", "id":3 }
+            ],
+            "elencoAddetti": [
+                { "nome":"Operatore1", "id":1 },
+                { "nome":"Operatore2", "id":2 },
+                { "nome":"Operatore3", "id":3 }
+            ]
+        }
+    ]
+}

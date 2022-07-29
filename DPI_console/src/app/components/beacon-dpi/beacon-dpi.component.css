@@ -1,0 +1,38 @@
+.img-size {
+  height: 48px;
+  margin-right: 16px;
+}
+
+.v-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.multiselect-delete {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.label-delete {
+  margin-top: 8px;
+}
+
+.delete-btn {
+  margin-top: 16px;
+  text-align: right;
+}
+
+.btns-operazioni {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Modifiche grafica */
+td {
+  overflow: auto;
+}

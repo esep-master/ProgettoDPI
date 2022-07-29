@@ -1,0 +1,3 @@
+include ':blebandroid'
+include ':app'
+rootProject.name = "DPI"

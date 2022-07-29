@@ -1,0 +1,48 @@
+<p-table [value]="elencoDpi" #dt9 [paginator]="true" [rows]="4" [loading]="loading" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="caption">
+        <div class="tab-caption">
+            <div>
+                {{kit.modello}}
+            </div>
+            <div>
+                <div>
+                    <img [smartIcon]="kit.settore.nomeIcona" class="img-size" />
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>{{'BEACON_DPI_CMP.TIPO' | translate}}
+            </th>
+            <th>{{'BEACON_DPI_CMP.CODICE_DPI' | translate}}
+            </th>
+            <th>{{'BEACON_DPI_CMP.SERIALE_BEACON' | translate}}
+            </th>
+            <th>Data Sblocco da</th>
+            <th>Data Sblocco a</th>
+            <th>{{'BEACON_DPI_CMP.SCADENZA' | translate}}
+            </th>
+            <th>{{'BEACON_DPI_CMP.LVL_BATTERIA' | translate}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dpiKit>
+        <tr>
+            <td>
+                <div class="v-align-center">
+                    <img class="img-table-size" [smartIcon]="dpiKit.dpi.tipoDPI.nomeIcona"
+                        alt="">{{dpiKit.dpi.tipoDPI.nome}}
+                </div>
+            </td>
+            <td class="break-word">{{dpiKit.dpi.codice}}</td>
+            <td class="break-word">{{dpiKit.dpi.beacon.seriale}}</td>
+            <td class="break-word">{{dpiKit.sbloccoAllarmeDa ? (dpiKit.sbloccoAllarmeDa | formatDate) : '-'}}</td>
+            <td class="break-word">{{dpiKit.sbloccoAllarmeA ? (dpiKit.sbloccoAllarmeA | formatDate) : '-'}}</td>
+            <td class="break-word">{{dpiKit.dpi.scadenzaCalcolata | daysToYears}}</td>
+            <td>
+                <img class="img-size" [smartIcon]="dpiKit.dpi.iconaBatt" alt="">
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

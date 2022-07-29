@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="helmet_marginStart">50dp</dimen>
+    <dimen name="helmet_marginBottom">300dp</dimen>
+    <dimen name="left_glove_marginStart">120dp</dimen>
+    <dimen name="left_glove_marginBottom">250dp</dimen>
+    <dimen name="right_glove_marginEnd">100dp</dimen>
+    <dimen name="jacket_marginBottom">150dp</dimen>
+    <dimen name="trousers_marginBottom">20dp</dimen>
+    <dimen name="left_shoes_marginStart">70dp</dimen>
+    <dimen name="left_shoes_marginTop">250dp</dimen>
+    <dimen name="right_shoes_marginEnd">40dp</dimen>
+    <dimen name="right_shoes_marginTop">270dp</dimen>
+    <dimen name="title_info_dpi_text_size">17sp</dimen>
+    <dimen name="info_dpi_text_size">12sp</dimen>
+</resources>

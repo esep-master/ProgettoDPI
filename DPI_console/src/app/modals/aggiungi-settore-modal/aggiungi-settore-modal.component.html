@@ -1,0 +1,12 @@
+<!-- NOME -->
+<div class="mr-16">
+    <label for="nome">
+        {{'ADD_OPERATORE_MODAL.IDENTIFICATIVO' | translate}}: 
+    </label>
+    <input pInputText type="text" id="nome" [(ngModel)]="nome">
+</div>
+<div class="ta-right">
+    <button pButton class="p-button" type="button" [disabled]="nome=='' || !nome"
+        label="{{'ADD_OPERATORE_MODAL.CONFIRM' | translate}}" (click)="onSubmit()">
+    </button>
+</div>

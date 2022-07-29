@@ -1,0 +1,63 @@
+<form [formGroup]="form">
+    <div class="form-content">
+        <!-- NOME -->
+        <div class="mr-16">
+            <label for="nome">
+                {{'ADD_ADMIN_MODAL.NOME' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="nome" formControlName="nome">
+        </div>
+        <!-- COGNOME -->
+        <div class="mr-16">
+            <label for="cognome">
+                {{'ADD_ADMIN_MODAL.COGNOME' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="cognome" formControlName="cognome">
+        </div>
+    </div>
+    <div class="form-content">
+        <!-- EMAIL -->
+        <div class="mr-16">
+            <label for="email">
+                {{'ADD_ADMIN_MODAL.EMAIL' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="email" formControlName="email">
+        </div>
+        <!-- TELEFONO -->
+        <div class="mr-16">
+            <label for="numeroTelefono">
+                {{'ADMIN_CMP.PHONE' | translate}}
+            </label>
+            <input pInputText type="number" class="form-control" id="numeroTelefono" formControlName="numeroTelefono">
+        </div>
+    </div>
+    <div class="form-content">
+        <!-- USERNAME -->
+        <div class="mr-16" *ngIf="!isUpdate">
+            <label for="username">
+                {{'ADD_ADMIN_MODAL.USERNAME' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="username" formControlName="username">
+        </div>
+        <!-- PSW -->
+        <div class="mr-16" *ngIf="!isUpdate">
+            <label for="password">
+                {{'ADD_ADMIN_MODAL.PASSWORD' | translate}}*
+            </label>
+            <p-password id="password" formControlName="password" [toggleMask]="true"></p-password>
+        </div>
+        <!-- PSW CONF -->
+        <div class="mr-16" *ngIf="!isUpdate">
+            <label for="passwordConfirm">
+                {{'ADD_ADMIN_MODAL.CONF_PASSWORD' | translate}}*
+            </label>
+            <p-password id="passwordConfirm" [feedback]="false" formControlName="passwordConfirm" [toggleMask]="true"></p-password>
+        </div>
+    </div>
+
+    <div class="ta-right">
+        <button pButton class="p-button" type="button" [disabled]="!isFormValid()"
+            label="{{'ADD_ADMIN_MODAL.CONFIRM' | translate}}" (click)="onSubmit()">
+        </button>
+    </div>
+</form>

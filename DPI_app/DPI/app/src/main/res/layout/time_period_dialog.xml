@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2020. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 28/01/2020 11:29
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/time_period_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <SeekBar
+        android:id="@+id/time_period_seek"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="42dp"
+        android:max="131"/>
+    <TextView
+        android:id="@+id/time_period_value"
+        android:layout_width="40dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size"
+        android:layout_marginRight="8dp"
+        android:text="1s" />
+</LinearLayout>

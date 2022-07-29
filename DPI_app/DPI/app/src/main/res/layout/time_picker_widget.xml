@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2020. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 28/01/2020 11:14
+  -->
+
+<!-- Layout of time picker-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:gravity="center">
+
+        <!-- hour -->
+        <NumberPicker
+            android:id="@+id/hour"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size"
+            android:text=":"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="2dp"
+            />
+
+        <!-- minute -->
+        <NumberPicker
+            android:id="@+id/minute"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dip"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size"
+            android:text=":"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="2dp"
+            />
+
+        <!-- seconds -->
+        <NumberPicker
+            android:id="@+id/seconds"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dip"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+    </LinearLayout>
+
+    <!-- AM / PM -->
+    <Button
+        android:id="@+id/amPm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dip"
+        android:layout_marginStart="5dip"
+        android:paddingStart="20dip"
+        android:paddingEnd="20dip"
+        style="?android:attr/textAppearanceLargeInverse"
+        android:textColor="@android:color/primary_text_light_nodisable"
+        />
+
+</LinearLayout>
+

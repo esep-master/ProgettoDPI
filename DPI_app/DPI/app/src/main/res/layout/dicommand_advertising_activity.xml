@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Bleb Technology srl.
+  ~ Copyright (c) 2020. All rights reserved.
+  ~ https://bleb.it
+  ~
+  ~ Last modified 16/06/2019 15:03
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dicommand_advertising_activity_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <it.bleb.dpi.utils.CustomSpinner
+        android:id="@+id/dicommand_advertising_activity_spin"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dicommand_advertising_activity_desc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dicommand_advertising_activity_desc"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Mode:"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/dicommand_advertising_activity_spin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dicommand_advertising_activity_spin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

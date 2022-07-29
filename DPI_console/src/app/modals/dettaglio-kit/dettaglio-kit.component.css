@@ -1,0 +1,18 @@
+.img-size {
+  height: 48px;
+}
+
+.tab-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-table-size {
+  height: 32px;
+}
+
+.v-align-center {
+  display: flex;
+  align-items: center;
+}

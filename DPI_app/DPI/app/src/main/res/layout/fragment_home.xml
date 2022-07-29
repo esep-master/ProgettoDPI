@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:textAlignment="center"
+    android:theme="@style/AppTheme.NoActionBar">
+
+    <ImageView
+        android:id="@+id/img_silouhette"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/text_silouhette"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/silouhette"
+        tools:visibility="visible" />
+
+    <!--Modifiche cuffie e imbracatura-->
+
+    <ImageView
+        android:id="@+id/silouhette_earmuffs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintWidth_percent="0.2"
+        android:src="@drawable/earmuffs"
+        android:contentDescription="@string/text_earmuffs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"/>
+
+    <ImageView
+        android:id="@+id/silouhette_harness"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintWidth_percent="0.3"
+        android:src="@drawable/safety_harness"
+        android:contentDescription="@string/text_harness"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/silouhette_earmuffs" />
+
+    <ImageView
+        android:id="@+id/img_harness"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/img_harness"
+        app:layout_constraintBottom_toBottomOf="@id/silouhette_harness"
+        app:layout_constraintEnd_toEndOf="@id/silouhette_harness"
+        app:layout_constraintStart_toStartOf="@id/silouhette_harness"
+        app:layout_constraintTop_toTopOf="@+id/silouhette_harness"
+        android:layout_marginEnd="17dp"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_earmuffs"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/img_earmuffs"
+        app:layout_constraintBottom_toBottomOf="@+id/silouhette_earmuffs"
+        app:layout_constraintEnd_toEndOf="@+id/silouhette_earmuffs"
+        app:layout_constraintStart_toStartOf="@+id/silouhette_earmuffs"
+        app:layout_constraintTop_toTopOf="@+id/silouhette_earmuffs"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_helmet"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="@dimen/helmet_marginStart"
+        android:layout_marginBottom="@dimen/helmet_marginBottom"
+        android:contentDescription="@string/img_helmet"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_leftGlove"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="@dimen/left_glove_marginStart"
+        android:layout_marginBottom="@dimen/left_glove_marginBottom"
+        android:contentDescription="@string/img_leftglove"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_rightGlove"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="@dimen/right_glove_marginEnd"
+        android:contentDescription="@string/img_rightglove"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_rightShoe"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="@dimen/right_shoes_marginTop"
+        android:layout_marginEnd="@dimen/right_shoes_marginEnd"
+        android:contentDescription="@string/img_rightshoe"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_leftShoe"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="@dimen/left_shoes_marginStart"
+        android:layout_marginTop="@dimen/left_shoes_marginTop"
+        android:contentDescription="@string/img_leftshoe"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_jacket"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="@dimen/jacket_marginBottom"
+        android:contentDescription="@string/img_jacket"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/img_trousers"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="@dimen/trousers_marginBottom"
+        android:contentDescription="@string/img_trousers"
+        app:layout_constraintBottom_toBottomOf="@id/img_silouhette"
+        app:layout_constraintEnd_toEndOf="@id/img_silouhette"
+        app:layout_constraintStart_toStartOf="@id/img_silouhette"
+        app:layout_constraintTop_toTopOf="@+id/img_silouhette"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

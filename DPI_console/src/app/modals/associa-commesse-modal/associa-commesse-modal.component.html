@@ -1,0 +1,47 @@
+<p-table [value]="listaCommesse" [loading]="loading" [rows]="5" [paginator]="true" #dt10 >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{ 'ASS_COMMESSA_MODAL.NOME' | translate }}
+                </div>
+            </th>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    {{ 'ASS_COMMESSA_MODAL.AZIONE' | translate }}
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-commessa>
+        <tr *ngIf="!commessa.associata">
+            <td>
+                {{commessa.nome}}
+            </td>
+            <td>
+                <button class="p-button-outlined icon-button" pButton type="button" label="{{ 'ASS_COMMESSA_MODAL.ASSOCIA' | translate }}"
+                    (click)="onDisAssocia(commessa)"></button>
+            </td>
+        </tr>
+        <tr *ngIf="commessa.associata">
+            <td>
+                {{commessa.nome}}
+            </td>
+            <td>
+                <button class="p-button-outlined icon-button p-button-danger" pButton type="button" label="{{ 'ASS_COMMESSA_MODAL.DISASSOCIA' | translate }}"
+                    (click)="onDisAssocia(commessa)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<!-- 
+<p-multiSelect [options]="listaCommesse" [(ngModel)]="commesseSelected" optionValue="id" optionLabel="nome">
+</p-multiSelect>
+
+<div>
+    <button pButton class="p-button mt-16" type="button" label="{{'ADD_ADMIN_MODAL.CONFIRM' | translate}}"
+        (click)="onConfirm()">
+    </button>
+</div> -->

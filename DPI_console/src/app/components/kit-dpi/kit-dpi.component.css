@@ -1,0 +1,19 @@
+.img-table-size {
+  height: 32px;
+}
+
+.v-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.btns-operazioni {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Modifiche grafica */
+td {
+  overflow: auto;
+}

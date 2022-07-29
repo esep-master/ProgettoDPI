@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+    <div class="form-content">
+        <!-- NOME -->
+        <div class="mr-16">
+            <label for="nome">
+                {{'ADD_COMMESSA_MODAL.NOME' | translate}}*
+            </label>
+            <input pInputText type="text" class="form-control" id="nome" formControlName="nome">
+        </div>
+        <!-- SETTORE -->
+        <div class="mr-16">
+            <label for="cognome">
+                {{'ADD_COMMESSA_MODAL.SETTORE' | translate}}*
+            </label>
+            <p-dropdown [options]="settoriList" formControlName="settore" optionLabel="nome"
+                optionValue="id"
+                placeholder="{{'ADD_COMMESSA_MODAL.SEL_SETTORE' | translate}}">
+            </p-dropdown>
+        </div>
+    </div>
+    <div class="ta-right">
+        <button pButton class="p-button" type="button" [disabled]="!isFormValid()"
+            label="{{'ADD_COMMESSA_MODAL.CONFIRM' | translate}}" (click)="onSubmit()">
+        </button>
+    </div>
+</form>

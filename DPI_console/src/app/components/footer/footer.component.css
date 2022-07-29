@@ -1,0 +1,36 @@
+.footer {
+  border: 0;
+  border-top: 1px solid #eee;
+  z-index: 10;
+
+  background-color: #f8f8f8;
+  position: fixed;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  color: #565656;
+}
+
+.footer-position {
+  text-align: right;
+  margin-right: 24px;
+  display: inline-block;
+}
+
+.footer-class {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 24px;
+  margin-left: 8px;
+}
+
+.footer-label{
+  font-family: Quicksand-regular,Verdana,sans-serif;
+  font-size: 14px;
+}
